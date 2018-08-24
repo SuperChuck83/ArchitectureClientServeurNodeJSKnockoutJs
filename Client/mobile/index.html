@@ -1,0 +1,2425 @@
+﻿<!DOCTYPE html>
+<html style="height:100% ;" lang="fr">
+<head>
+    <title>FrutiZone Mobile</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+    <link rel="apple-touch-icon" href="Client/img/icon/fraise-2x.png">
+    <meta name="apple-mobile-web-app-title" content="FrutiZone">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!--<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCqLskh0mBk3NO28MDWM9KzsXufLQ-akCA",
+            authDomain: "frutizone-b7c65.firebaseapp.com",
+            databaseURL: "https://frutizone-b7c65.firebaseio.com",
+            projectId: "frutizone-b7c65",
+            storageBucket: "",
+            messagingSenderId: "911144471431"
+        };
+        firebase.initializeApp(config);
+        // Retrieve Firebase Messaging object.
+        const messaging = firebase.messaging();
+        // Add the public key generated from the console here.
+        messaging.usePublicVapidKey("BFXIFqkkmyILMpchPs7H4Krwvxb7HIM25dAcWe4fAKdvNLaeDHGNp7Ky1G8PTfmpu6stoLplbETpjUctK54w7GE");
+
+        messaging.requestPermission().then(function () {
+            console.log('Notification permission granted.');
+            // TODO(developer): Retrieve an Instance ID token for use with FCM.
+            // ...
+        }).catch(function (err) {
+            console.log('Unable to get permission to notify.', err);
+        });
+
+
+    </script>-->
+
+
+    <script>
+
+
+        var currentUrl = window.location.href;
+        var index = currentUrl.indexOf("www.frutizone");
+        var index2 = currentUrl.indexOf("http://");
+        var index3 = currentUrl.indexOf("localhost");
+        var index4 = currentUrl.indexOf("10.110.200");
+
+        if ((index != -1 || index2 != -1) && index3 == -1) {
+            window.location.replace("https://frutizone.fr/m");
+        }
+
+        //var _foxpush = _foxpush || [];
+        //_foxpush.push(['_setDomain', 'frutizonefr']);
+
+        //(function () {
+        //    var foxscript = document.createElement('script');
+        //    foxscript.src = '//cdn.foxpush.net/sdk/foxpush_SDK_min.js';
+        //    foxscript.type = 'text/javascript';
+        //    foxscript.async = 'true';
+        //    var fox_s = document.getElementsByTagName('script')[0];
+        //    fox_s.parentNode.insertBefore(foxscript, fox_s);
+        //})();
+
+
+
+
+    </script>
+    <!-- Librairie JQUERY  -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  
+    <!-- Librairie KNOCKOUT -->
+    <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js"></script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
+    <link rel="shortcut icon" href="Client/img/fraise.png" type="image/x-icon" />
+
+    <link rel="manifest" href="Client/manifest.json">
+
+
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.fr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" />
+
+    <script src="https://www.paypalobjects.com/api/checkout.min.js"></script>
+
+
+    <!-- CONFIG js -->
+    <script src="/client/js/config/config.js" charset="windows-1252"></script>
+
+    <!-- inscription js principal -->
+    <script src="/client/js/ObjetInscriptionFactory.js" charset="windows-1252"></script>
+
+
+
+
+    <!-- nosleep js principal -->
+    <script src="/client/js/NoSleep.min.js" charset="windows-1252"></script>
+
+    <script src="/client/js/exif.js" charset="windows-1252"></script>
+
+    <!--//ko mapping-->
+    <script src="/client/js/ko.mapping.js" charset="windows-1252"></script>
+
+    <!-- underscore js  -->
+    <script src="/client/js/underscore-min.js" charset="windows-1252"></script>
+
+    <script src="/client/js/moment.min.js" charset="windows-1252"></script>
+    <script src="/client/js/moment-with-locales.min.js" charset="windows-1252"></script>
+
+    <script src="/client/js/date.format.js" charset="windows-1252"></script>
+
+    <script src="/client/js/notify/notify.min.js" charset="windows-1252"></script>
+
+    <!--avatar factory-->
+    <script src="/client/js/avatarFactory.js" charset="windows-1252"></script>
+
+    <!-- experience factory  js  -->
+    <script src="/client/js/experienceFactory.js" charset="windows-1252"></script>
+
+    <!-- user profil factory  js  -->
+    <script src="/client/js/ProfilFactory.js" charset="windows-1252"></script>
+
+    <!-- OCR js principal -->
+    <script src="/client/js/mobile.js" charset="windows-1252"></script>
+
+
+    <!--fa: font awesome -->
+    <link rel="stylesheet" href="Client/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" type="text/css" href="/client/ocr.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/mobile.css">
+
+    <link href="/client/css/hamburgers.min.css" rel="stylesheet">
+
+    <!-- CSS avatar -->
+    <link rel="stylesheet" type="text/css" href="/client/css/avatar.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/mail.css">
+    <link rel="stylesheet" href="/client/magicCss/magic.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+    <!-- CSS circle -->
+    <link rel="stylesheet" type="text/css" href="/client/css/circle.css">
+
+</head>
+
+<body style="height:100%;background-color:#D9F7BA;">
+
+    <div id="preimg" style="position:absolute; opacity:0; width:1px; height:1px;">
+
+    </div>
+    <script>
+        { //chargement des frutibouilles ! une fois que la page a finis de charger on charge en arrière plan les frutibouilles en paralelle.
+
+            var ListImageToLoad = ["Client/img/SVG/Chapeau/Allez les bleus/bleu.svg", "Client/img/SVG/Chapeau/hippo/bleu.svg", "Client/img/SVG/Chapeau/hippo/rose.svg", "Client/img/SVG/Chapeau/Paraffime/rouge.svg", "Client/img/SVG/Chapeau/Sac/marron.svg"];
+
+            for (var i in ListImageToLoad) {
+
+                $("#preimg").append("<img  style='position:absolute; width:1px; height:1px;' src='" + ListImageToLoad[i] + "'/>");
+
+            }
+        }
+    </script>
+    <!--Charte du site -->
+    <!-- Modal -->
+    <div id="CharteModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Charte du site </h4>
+                </div>
+                <div class="modal-body">
+
+                    <h3> Confidentialité des données  </h3>
+                    Les données personnelles en notre possession sont le pseudo utilisé comme identifiant unique sur l'ensemble du site, l'adresse mail utilisée lors de l'oubli de mot de passe,
+                    le mot de passe crypté, la date de naissance que vous avez renseignée lors de l'inscription permet d'afficher un gateau d'anniversaire dans la liste de contacts, la région dans un seul but d'affichage sur le site, le genre de la personne dans un seul but d'affichage sur le site ( rouge femme, bleu homme ), les Fruti-messages sont en clair en base de donnée.
+                    Les messages du forum sont conservés ainsi que les ip de provenance de chaque message du forum, les messages des tchats ne sont pas conservés.
+
+                    en cas de changement ce document sera modifié, toute utilisation du service implique l'acceptation de ces règles, si vous n'êtes pas d'accord ne vous inscrivez pas.
+
+
+                    <h3> 1 - multicomptes  </h3>
+
+                    <br />
+                    -Les multicomptes sont interdits.
+
+
+
+                    <h3>   1.1 – Liens hypertextes avec des sites tiers </h3>
+                    FrutiZone n’exerce aucun contrôle quant au contenu des sites tiers.
+                    L’existence d’un lien hypertexte entre le Site et un site tiers ne signifie pas
+                    que FrutiZone assure une quelconque garantie ou responsabilité quant à son contenu ou l’usage qui peut en être fait.
+
+                    <h3> 1.2 – Disponibilité du Site </h3>
+                    Le Site est accessible 24/24h, 7/7j, sauf interruption, programmée ou non, pour les besoins de sa maintenance ou cas de force majeure.
+                    FrutiZone ne saurait être tenue responsable de dommages, quelle qu’en soit la nature, résultant d’une indisponibilité du Site.
+
+
+                    <h3> 2.0 –Forum et Tchat  </h3>
+
+                    Forum et tchat modéré a posteriori
+                    Ce forum est modéré a posteriori, les messages que vous postez sont directement publiés  sans aucun contrôle préalable. Il est de votre responsabilité de veiller à ce que vos contributions ne portent pas préjudice à autrui et soient conforment à la réglementation en vigueur. Les organisateurs du forum et les modérateurs se réservent le droit de retirer toute contribution qu’ils estimeraient déplacée, inappropriée, contraire aux lois et règlements, à cette charte d’utilisation ou susceptible de porter préjudice directement ou non à des tiers.
+
+                    Les messages qui ne sont pas en relation avec les thèmes de discussion ou avec l’objet du forum peuvent être supprimés sans préavis par les modérateurs. Seront aussi supprimées, sans préjudice d'éventuelles poursuites disciplinaires ou judiciaires, les contributions qui :
+
+                    1. incitent à la discrimination fondée sur la race, le sexe, la religion, à la haine, à la violence, au racisme ou au révisionnisme
+
+                    2. incitent à la commission de délits
+
+                    3. sont contraire à l'ordre public et aux bonnes mœurs,
+
+                    4. font l’apologie des crimes ou délits et particulièrement du meurtre, viol, des crimes de guerre et crimes contre l'humanité,
+
+                    5. ont un caractère injurieux, diffamatoire, insultant ou grossier
+
+                    6. portent manifestement atteinte aux droits d’autrui et particulièrement ceux qui portent atteinte à l'honneur ou à la réputation d'autrui,
+
+                    7. sont liés à un intérêt manifestement commercial ou ont un but promotionnel sans objet avec le forum.
+
+                    L’utilisation d’un pseudonyme ne rend pas anonyme, conformément à la législation les prestataires techniques sont tenus de conserver et de déférer à l’autorité judiciaire les informations de connexions (log, IP, date/heure) permettant la poursuite de l’auteur d’une infraction. Toutes les informations nécessaires seront donc conservées pour la durée légale prévue. Elles seront détruites au terme du délai légal de conservation.
+
+                    Les organisateurs du forum se réservent le droit d’exclure du forum, de façon temporaire ou définitive, toute personne dont les contributions sont en contradiction avec les règles mentionnées dans le présent document. Les organisateurs pourront transmettre aux autorités de police ou de justice toutes les pièces ou documents postés sur le forum s’ils estiment de leur devoir d’informer les autorités compétentes ou que la législation leur en fait obligation.
+
+                    <h3>   3.0 – Achat dans la boutique </h3>
+                    l'achat de kikooz, la monaie du site, est irrévocable, aucun remboursement ne sera effectué. un bannissement définitif entraine donc une perte de tous les kikooz. <br /> Une fermeture du site entrainera donc la perte de son compte et donc des achats effectués sans remboursement possible. <br /> Aucune raison ne peut amener à un remboursement de n'importe quelle nature.
+
+                    <h3>   4.0 – Modification et intrusion du système d'information</h3>
+
+                    Il est interdit de modifier le code source de l'ensemble du site. il est interdit de s'introduire dans l'ensemble du système d'information de frutizone. il est interdit d'altérer la base de donnée.
+                    Toute attaque informatique est interdite.
+
+
+                    <h3>   5.0 – Acceptation des conditions d’utilisation</h3>
+
+                    La personne reconnaît avoir pris connaissance des conditions d’utilisation et de modération définies dans la présente charte,
+                    au moment de sa connexion au Site et déclare expressément les accepter sans réserve.
+
+                    <h3>   6.0 – Sanctions </h3>
+                    Le manquement aux règles et mesures de sécurité de la présente charte est susceptible d'engager la responsabilité de l'utilisateur et d'entraîner à son encontre des avertissements,
+                    des limitations ou suspensions d'utiliser tout ou partie du système d'information et de communication.
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!--Suppression ami modal-->
+    <!-- Modal -->
+    <div id="DelAmiodal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:red;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"> Supprimer un ami !? </h4>
+                </div>
+                <div class="modal-body">
+
+                    <div>
+                        Tu veux supprimer <span style="font-weight:bold;" data-bind="text:$root.capitalizeFirstLetter(contact.ContactToDelete)"> </span> de tes amis ?
+                    </div>
+                    <div style="text-align:center;margin-top:5px;">
+                        <span> <button data-bind="click: contact.YesdeleteContact" class="frutiBouttonAchat" style="width:50px;"> Oui </button>  </span>
+                        <span> <button data-bind="click: contact.NOdeleteContact" class="frutiBouttonCancel"> Annuler </button>  </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!--FIN suppresion modal-->
+    <!--Suppression ami noir modal-->
+    <!-- Modal -->
+    <div id="DelAmiNoirmodal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:red;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"> Supprimer un contact de la liste noire !? </h4>
+                </div>
+                <div class="modal-body">
+
+                    <div>
+                        tu veux supprimer <span style="font-weight:bold" data-bind="text: $root.capitalizeFirstLetter(DossierContact_noir.ContactToDelete)"> </span> de la liste noire ?
+                    </div>
+                    <div style="text-align:center;margin-top:5px;">
+                        <span> <button data-bind="click: DossierContact_noir.DeleteContact" class="frutiBouttonAchat" style="width:50px;"> oui </button>  </span>
+                        <span> <button data-bind="click: DossierContact_noir.ClosePopUpDelete" class="frutiBouttonCancel"> annuler </button>  </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!--FIN suppresion modal-->
+    <!--AJOUT ami noir modal-->
+    <!-- Modal -->
+    <div id="AddAmiNoirmodal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:red;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"> Ajouter un contact à la liste noire !? </h4>
+                </div>
+                <div class="modal-body">
+
+                    <div>
+                        tu veux ajouter <span style="font-weight:bold" data-bind="text: $root.capitalizeFirstLetter(pseudoToAddListeNoir)"> </span> à la liste noire ?
+                    </div>
+                    <div style="text-align:center;margin-top:5px;">
+                        <span> <button data-bind="click: AddInListeNoir" class="frutiBouttonAchat" style="width:50px;"> oui </button>  </span>
+                        <span> <button data-bind="click: cancelModal" class="frutiBouttonCancel"> annuler </button>  </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!--AJOUT suppresion modal-->
+    <!--Annonce modal-->
+    <!-- Modal -->
+    <div id="Annoncemodal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:#fff3cd;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"> Fruti'Annonce ! </h4>
+                </div>
+                <div class="modal-body">
+
+                    <div style="text-align:center;font-size:21px;">
+                        <span style="font-weight:bold;color:#6ace46"><span>FRUTI</span><span style="color:#ff8d3d">ZONE</span> </span>
+                    </div>
+                    <span data-bind="text: AnnonceMessage">
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!--FIN Annonce modal-->
+    <!--Deconnection modal-->
+    <!-- Modal -->
+    <div id="decomodal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:red;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"> Perte de la connection à FrutiZone ! </h4>
+                </div>
+                <div class="modal-body">
+
+                    Tu as été déconnecté(e) du site. rafraichit la page pour te reconnecter...
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!--FIN Deconnection modal-->
+    <!-- Modal INVITATION -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title TextSizeMobile">Invitation(s)</h5>
+                </div>
+                <div class="modal-body textOverflow">
+
+                    <div data-bind="foreach: ListeInvitationSalon">
+
+                        <div>
+                            <span style="font-weight:bold;" data-bind="text: $root.capitalizeFirstLetterNO(pseudoInviteur)"> </span> <span data-bind="visible:Libelle2"> veut discuter</span>
+                            <span data-bind="visible:Libelle">  <span> t'invite a rejoindre le salon "<span data-bind="text: Libelle"> </span>"</span> </span> , souhaitez vous le rejoindre ?
+                            <div>
+                                <button data-bind="click: clicked" style="background-color:#FFAAAA; border-radius:10px; margin-left: auto;margin-right: auto; width: 40%"> Oui </button>
+                                <button data-bind="click: canceled" style="background-color:#FFAAAA; border-radius:10px; margin-left: auto;margin-right: auto; width: 40%"> Non  </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--fin MODAL INVITATION-->
+    <!-- Modal connecté -->
+    <div class="modal fade" id="myModalCoList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title TextSizeMobile">Liste connecté</h5>
+                </div>
+                <div class="modal-body TextSizeMobile" style="height:70vh; overflow-y:auto;">
+
+
+                    <div data-bind="foreach : ListeSalonConnecte">
+                        <div class="clickable" data-bind="click:$root.clickOnpseudoInChat">
+                            <!--click: $root.clickOnpseudoInChat-->
+                            <span data-bind="css : genre == 'M' ? 'Homme'  : 'Femme', text : $root.capitalizeFirstLetterNO(pseudo)"> </span>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--fin MODAL connecté"-->
+    <!--Ecran de connection-->
+    <div data-bind="visible:!connectionAutorise() && ConnectionVisible()" style="height:100%;background-size: cover;  user-select:none;">
+
+        <div class="center">
+            <div>
+                <div>
+                    <img style="width:40px; height:50px; margin-top:5px;" src="Client/img/lowpolyfraise.png" />
+                </div>
+
+                <div style="color:black; font-size:40px;" class="Frutifont">
+                    <span style="font-weight:bold;color:#6ace46"><span>FRUTI</span><span style="color:#ff8d3d">ZONE</span> </span>
+                </div>
+
+            </div>
+
+            <!--font-size:25px; padding-top:20px;-->
+            <div style="">
+                <!--<div>
+                    <img alt="nom" src="Client/img/old/nom.svg" style="width:80px;" />
+                </div>
+
+                <div>
+                    <input class="MfrutiInputConnection" autocomplete="off" data-bind="value:player.pseudo" />
+                </div>
+
+                <div>
+                    <img alt="code" src="Client/img/old/code.svg" style="width:80px;" />
+                </div>
+
+                <div>
+                    <input type="password" class="MfrutiInputConnection" autocomplete="off" data-bind="value: player.motdepasse" />
+                </div>-->
+
+                <div class="styled-input styled-input2" style="margin-top:20px; width:70%;position: relative; margin-left: auto;margin-right: auto;">
+                    <input type="text" class="MfrutiInputConnection" autocomplete="off" required data-bind="value : player.pseudo" />
+                    <label>Nom</label>
+                    <span></span>
+                </div>
+
+
+                <div class="styled-input styled-input2" style="margin-top:40px;width:70%;position: relative; margin-left: auto;margin-right: auto;">
+                    <input type="password" class="MfrutiInputConnection" autocomplete="off" required data-bind="value : player.motdepasse" />
+                    <label>Code</label>
+                    <span></span>
+                </div>
+
+
+                <!--<div class="buttonConnectionContainer">
+                    <button class="frutiBoutton TexteGras buttonConnectionMobile" data-bind="visible:AskAllow, click: clickAskForConnection">OK </button>
+                    <img data-bind="visible:!AskAllow()" src="Client/img/ajax-loader-small.gif" />
+                </div>-->
+
+                <div style="padding-top:5px;padding-bottom:10px;"  >
+                    <div class="SignInbtnMobileOk" data-bind="visible:AskAllow, click: clickAskForConnection">OK</div>
+
+                   
+                </div>
+                
+
+            </div>
+
+
+
+            <div style="text-align:center;  left:0;right:0; margin-left:auto;margin-right:auto;">
+
+                   
+               <div>
+                    <span class="clickable" style="padding-left:15px;"> <a data-bind="click:inscriptionClick" style="color:#C7616B;"> S'inscrire </a> </span>
+                    <span class="clickable" style="padding-left:20px;"> <a href="mailto:frutizoneofficiel@gmail.com" style="color:#C7616B;"> Contactez-nous </a> </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!--Fin ecran de connection-->
+    <!--Ecran d'inscription-->
+    <div data-bind="visible:InscriptionVisible">
+
+        <!--Inscription-->
+        <div style="width:100%;">
+            <div class="width:100%;">
+                <h2 style="text-align:center;opacity:0.9" class="Frutifont"> S'inscrire sur <span style="font-weight:bold;color:#6ace46"><span>FRUTI</span><span style="color:#ff8d3d">ZONE</span> </span></h2>
+            </div>
+
+            <div class="col-md-12" style="padding-bottom:25px;">
+
+                <div class="notSelectable" >
+
+                    <div class="avatarManager" style="user-select:none; margin-top:10px; margin-left:auto; margin-right:auto; width:100px; height:100px; background-color: #C4F295; border-style:solid; border-width:1px; border-radius:10px;">
+
+                        <div id="widget" style="width:100px; height:100px; margin-left:5px;margin-top:10px;">
+
+                            <img alt="tete" data-bind="attr:{src: avatarManager.tete}"
+                                 style="position:relative; z-index:1; width:85px; height:85px" />
+
+                            <img alt="cheveux" data-bind="attr:{src: avatarManager.cheveux, class : avatarManager.ClassCheveux }"
+                                 style="position:relative; z-index:3;" />
+
+                            <img alt="yeux" data-bind="attr:{src: avatarManager.yeux}"
+                                 style="position:relative;width:45px; height:45px;z-index:2; margin-top:-130px;margin-left:10px;" />
+
+
+                            <img alt="bouche" data-bind="attr:{src: avatarManager.bouche, class : avatarManager.ClassBouche}" />
+
+
+                            <img alt="chapeau" data-bind="visible: avatarManager.chapeau, attr:{src: avatarManager.chapeau, class : avatarManager.Classchapeau }"
+                                 style="position:relative; z-index:3;" />
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div style="width:100%;text-align:center;">
+                        <label><input name="Test" type="radio" value="M" data-bind="checked: ObjetInscription.radioSelectedOptionValue">Homme</label>
+                        <label><input name="Test" type="radio" value="F" data-bind="checked: ObjetInscription.radioSelectedOptionValue" />Femme</label>
+
+                    </div>
+
+                    <!--perso avatar-->
+                    <div style=" display:table; margin-left:auto; margin-right:auto;">
+                        <div style="margin-top:10px;">
+                            <div class="TexteGras notSelectable TitreSection" style="">
+                                <div style="display:inline-block; width:75px;"> Cheveux </div>  <i class="fa fa-chevron-right clickable IconRose TextSizeMobile" data-bind="click:avatarManager.ChangeCheveuxForme" aria-hidden="true"></i>  <!--Couleur  <button data-bind="click:avatarManager.ChangecheveuxColor"> >  </button>-->
+                            </div>
+                            <div style="height:50px; padding-left:10px">
+                                <div data-name="blanc.svg" class="clickable colorDiv" data-bind="ClickCheveuxColor:1" style="background-color:#EDEDEB;"> </div>
+                                <div data-name="bleu.svg" class="clickable colorDiv" data-bind="ClickCheveuxColor:1" style="background-color:#678ECA;"> </div>
+                                <div data-name="gris.svg" class="clickable colorDiv" data-bind="ClickCheveuxColor:1" style="background-color:#BFBFBF;"> </div>
+                                <div data-name="jaune.svg" class="clickable colorDiv" data-bind="ClickCheveuxColor:1" style="background-color:#E68E25;"> </div>
+                                <div data-name="marron.svg" class="clickable colorDiv" data-bind="ClickCheveuxColor:1" style="background-color:#D28943;"> </div>
+                                <div data-name="noir.svg" class="clickable colorDiv" data-bind="ClickCheveuxColor:1" style="background-color:#2F2F2F;"> </div>
+                                <div data-name="rouge.svg" class="clickable colorDiv" data-bind="ClickCheveuxColor:1" style="background-color:#C64543;"> </div>
+                                <div data-name="vert.svg" class="clickable colorDiv" data-bind="ClickCheveuxColor:1" style="background-color:#87C626;"> </div>
+                                <div data-name="rose.svg" class="clickable colorDiv" data-bind="ClickCheveuxColor:1" style="background-color:mistyrose;"> </div>
+                                <div data-name="yellow.svg" class="clickable colorDiv" data-bind="ClickCheveuxColor:1" style="background-color:yellow;"> </div>
+                              </div>
+
+                        </div>
+                        <div>
+                            <div class="TexteGras notSelectable TitreSection" style="">
+                                <span> Tête </span>
+                            </div>
+                            <div style="height:50px; padding-left:10px">
+                                <div data-name="beige.svg" class="clickable colorDiv" style="background-color:#D8C684;" data-bind="ClickTeteColor:1"> </div>
+                                <div data-name="blanc.svg" class="clickable colorDiv" style="background-color:#EDEDEB;" data-bind="ClickTeteColor:1"> </div>
+                                <div data-name="bleu.svg" class="clickable colorDiv" style="background-color:#678ECA;" data-bind="ClickTeteColor:1"> </div>
+                                <div data-name="gris.svg" class="clickable colorDiv" style="background-color:#BFBFBF;" data-bind="ClickTeteColor:1"> </div>
+                                <div data-name="jaune.svg" class="clickable colorDiv" style="background-color:#E68E25;" data-bind="ClickTeteColor:1"> </div>
+                                <div data-name="marron.svg" class="clickable colorDiv" style="background-color:#D28943;" data-bind="ClickTeteColor:1"> </div>
+                                <div data-name="noir.svg" class="clickable colorDiv" style="background-color:#2F2F2F;" data-bind="ClickTeteColor:1"> </div>
+                                <div data-name="rouge.svg" class="clickable colorDiv" style="background-color:#C64543;" data-bind="ClickTeteColor:1"> </div>
+                                <div data-name="vert.svg" class="clickable colorDiv" style="background-color:#87C626;" data-bind="ClickTeteColor:1"> </div>
+                                <div data-name="rose.svg" class="clickable colorDiv" style="background-color:mistyrose;" data-bind="ClickTeteColor:1"> </div>
+                                <div data-name="yellow.svg" class="clickable colorDiv" style="background-color:yellow;" data-bind="ClickTeteColor:1"> </div>
+                            </div>
+                        </div>
+                        <div>
+
+                            <div class="TexteGras notSelectable TitreSection" style="">
+                                <div style="display:inline-block; width:75px;"> Yeux </div>  <i class="fa fa-chevron-right clickable IconRose TextSizeMobile" data-bind="click:avatarManager.ChangeOeilForme" aria-hidden="true"></i>  <!--Couleur  <button data-bind="click:avatarManager.ChangeOeilColor"> >  </button>-->
+                            </div>
+
+                            <div style="height:50px; padding-left:10px;">
+                                <div data-name="blanc.svg" class="clickable colorDiv" data-bind="ClickYeuxColor:1" style="background-color:#EDEDEB;"> </div>
+                                <div data-name="bleu.svg" class="clickable colorDiv" data-bind="ClickYeuxColor:1" style="background-color:#678ECA;"> </div>
+                                <div data-name="gris.svg" class="clickable colorDiv" data-bind="ClickYeuxColor:1" style="background-color:#BFBFBF;"> </div>
+                                <div data-name="jaune.svg" class="clickable colorDiv" data-bind="ClickYeuxColor:1" style="background-color:#E68E25;"> </div>
+                                <div data-name="marron.svg" class="clickable colorDiv" data-bind="ClickYeuxColor:1" style="background-color:#D28943;"> </div>
+                                <div data-name="noir.svg" class="clickable colorDiv" data-bind="ClickYeuxColor:1" style="background-color:#2F2F2F;"> </div>
+                                <div data-name="rouge.svg" class="clickable colorDiv" data-bind="ClickYeuxColor:1" style="background-color:#C64543;"> </div>
+                                <div data-name="vert.svg" class="clickable colorDiv" data-bind="ClickYeuxColor:1" style="background-color:#87C626;"> </div>
+                                <div data-name="rose.svg" class="clickable colorDiv" data-bind="ClickYeuxColor:1" style="background-color:mistyrose;"> </div>
+                                <div data-name="yellow.svg" class="clickable colorDiv" data-bind="ClickYeuxColor:1" style="background-color:yellow;"> </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="TexteGras notSelectable TitreSection" style="">
+                                <div style="display:inline-block; width:75px;"> Bouche </div>  <i class="fa fa-chevron-right clickable IconRose TextSizeMobile" data-bind="click:avatarManager.ChangeboucheForme" aria-hidden="true"></i>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-12">
+
+                <div class="inscription ">
+
+
+                    <div class="">
+                        <div class="styled-input" style="width:70%;margin-bottom:35px;position: relative; margin-left: auto;margin-right: auto;">
+                            <input type="text" style="background-color:white;" required data-bind="value : ObjetInscription.pseudo" />
+                            <label>Pseudonyme</label>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="styled-input" style="width:70%;margin-bottom:35px;position: relative; margin-left: auto;margin-right: auto;">
+                            <input type="password" style="background-color:white;" required data-bind="value : ObjetInscription.mdp1" />
+                            <label>Mot de passe</label>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="styled-input" style="width:70%;margin-bottom:35px;position: relative; margin-left: auto;margin-right: auto;">
+                            <input type="password" style="background-color:white;" required data-bind="value : ObjetInscription.mdp2" />
+                            <label>Confirmer mot de passe</label>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="styled-input" style="width:70%;margin-bottom:35px;position: relative; margin-left: auto;margin-right: auto;">
+                            <input type="text" style="background-color:white;" required data-bind="value : ObjetInscription.email" />
+                            <label>Adresse e-mail</label>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="input-group date styled-input" style="width:70%;margin-bottom:35px;position: relative; margin-left: auto;margin-right: auto;">
+                            <input class="datepicker form-control" style="background-color:white;" placeholder="jour/mois/année" data-bind="value:ObjetInscription.DateNaissance">
+                            <label>Date Naissance</label>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="input-group date styled-input" style="width:70%;margin-bottom:35px;position: relative; margin-left: auto;margin-right: auto;">
+                            <select style="background-color: white;border: none;height: 30px;" data-bind="options: ListeRegion, optionsText: 'nom', value : ObjetInscription.selectedRegion" size="1"></select>
+                            <input style="display:none;">
+                            <label>Departement</label>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="col-xs-12" style="text-align:center;padding-top:10px; padding-bottom:10px;">
+
+                            <div class="pretty p-default">
+                                <input type="checkbox" data-bind="checked: ObjetInscription.CharteLu" />
+                                <div class="state p-success">
+                                    <label></label>
+                                </div>
+                            </div>
+                            j'ai lu et j'accepte la <a class="clickable" data-toggle="modal" data-target="#CharteModal" style="color: #C7616B"> charte du site </a> que je m'engage à respecter
+                        </div>
+                    </div>
+
+                    <div class="" style="text-align:center;padding-top:10px; padding-bottom:10px;">
+                       
+                        <div class="SignInbtnMobile" data-bind="click:ClickInscription">S'inscrire</div>
+
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <!--Fin Inscription-->
+
+
+        <div style="text-align:center; width:100%;">
+            <span data-bind="click:ConnectClick" class="clickable TextSizeMobile"> <a href="" style="color:#C7616B;"> se connecter </a> </span>
+        </div>
+
+    </div>
+    <!--FIN Ecran d'inscription-->
+    <!--Dashboard-->
+    <div data-bind="visible:connectionAutorise">
+
+        <!--Hamburger menu-->
+        <div class="MenuContainer">
+            <!--<i class="fa fa-2x fa-bars clickable menuIcon" aria-hidden="true" data-bind="visible: !Hamburger.isOpen(),click:Hamburger.OpenOrClose"></i>
+            <i class="fa fa-2x fa-times clickable menuIcon" aria-hidden="true" data-bind="visible: Hamburger.isOpen, click:Hamburger.OpenOrClose"></i>-->
+
+            <div class="hamburger hamburger--spin" data-bind="click:Hamburger.OpenOrClose, css: { 'is-active': Hamburger.isOpen() }" style="margin-top:-9px; height:35px;">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </div>
+
+            <!-- Button trigger modal -->
+            <!--visible:SalonListNewMessage().length> 0-->
+            <div data-bind="click:function(){listMenu()[1].Select(43)}, visible:SalonListNewMessage().length> 0" style="float:right; user-select:none;" class="clickable" >
+                <i class="fa fa-comment clickable menuIcon" style="color:darkorange"></i>
+                <span class="clickable" style="font-weight:bold; color:red;position:relative;" data-bind="text:SalonListNewMessage().length"> </span>
+            </div>
+
+            <div data-bind="visible:ListeInvitationSalon().length> 0" style="float:right; user-select:none;" class="clickable" data-toggle="modal" data-target="#myModal" aria-hidden="true">
+                <i class="fa fa-user-plus clickable menuIcon"></i>
+                <span class="clickable" style="font-weight:bold; color:red;position:relative;" data-bind="text:ListeInvitationSalon().length"> </span>
+            </div>
+
+            <div data-bind="click:function(){listMenu()[2].Select(42)}, visible:DossierMail.NumberMailNonLu()> 0" style="float:right; user-select:none;" class="clickable">
+                <i class="fa fa-envelope clickable menuIcon"></i>
+                <span class="clickable TextSizeMobile" style="font-weight:bold; color:red;position:relative;" data-bind="text:DossierMail.NumberMailNonLu()"> </span>
+
+            </div>
+
+
+            <div class="itemContainer magictime slideLeftReturn" style="border-radius: 0px 0px 25px;position:absolute;z-index:10000000000000;width:200px; height:calc(100vh - 36px); background-color:#AAE56C" data-bind="visible: Hamburger.isOpen, foreach: listMenu">
+                <div class="itemMenu clickable" data-bind="style: { 'background-color': isSelect() ? '#F2F2F2' : '#AAE56C' }, click : Select">
+                    <span data-bind="text:Libelle"> </span>
+                </div>
+
+            </div>
+
+        </div>
+        <!--Fin Hamburger menu-->
+        <!--Accueil-->
+        <div data-bind="visible:listMenu()[0].isSelect()" style="user-select:none;">
+
+            <!--Gestion avatar-->
+
+            <div style="margin-bottom:20px;">
+
+                <div data-bind="click : clickOnAvatarAccueil" id="widget" class="clickable" style="transform: scale(0.7, 0.7); user-select: none;width:100px; height:100px; margin-left:auto;margin-right:auto;margin-top:10px;">
+
+                    <img alt="tete" data-bind="attr:{src: avatarHeader.tete}"
+                         style="position:relative; z-index:1; width:85px; height:85px" />
+
+                    <img alt="cheveux" data-bind="attr:{src: avatarHeader.cheveux, class : avatarHeader.ClassCheveux }"
+                         style="position:relative; z-index:3; " />
+
+
+                    <img alt="yeux" data-bind="attr:{src: avatarHeader.yeux}"
+                         style="position:relative;width:45px; height:45px;z-index:2; margin-top:-130px;margin-left:10px;" />
+
+
+                    <img alt="bouche" data-bind="attr:{src: avatarHeader.bouche, class : avatarHeader.ClassBouche}" />
+
+
+                    <img alt="chapeau" data-bind="visible: avatarHeader.chapeau, attr:{src: avatarHeader.chapeau, class : avatarHeader.Classchapeau }"
+                         style="position:relative;z-index:3; " />
+
+
+                </div>
+
+                <div>
+
+                    <div class="TextSizeMobile" style="margin-top:-25px; text-align:center;">
+                        <span data-bind="text:capitalizeFirstLetter(player.pseudo)"> </span>
+                    </div>
+
+                    <div class="BouilleEmote" style="text-align:center;padding-left:10px;">
+
+                        <span class="clickable EmoteDivMobile" data-bind="click:  avatarHeader.BeNeutral"> <img alt="emote" class="emoteMobile" src="Client/img/pf.gif" /> </span>
+                        <span class="clickable EmoteDivMobile" data-bind="click:  avatarHeader.BeHappy"> <img alt="emote" class="emoteMobile" src="Client/img/sourire.gif" /> </span>
+                        <span class="clickable EmoteDivMobile" data-bind="click:  avatarHeader.BeVeryHappy"> <img alt="emote" class="emoteMobile" src="Client/img/grossourire.gif" /> </span>
+                        <span class="clickable EmoteDivMobile" data-bind="click:  avatarHeader.BeJerk"> <img alt="emote" class="emoteMobile" src="Client/img/sournois.gif" /> </span>
+                        <span class="clickable EmoteDivMobile" data-bind="click:  avatarHeader.BeSad"> <img alt="emote" class="emoteMobile" src="Client/img/triste.gif" /> </span>
+                        <span class="clickable EmoteDivMobile" data-bind="click:  avatarHeader.BeAngry"> <img alt="emote" class="emoteMobile" src="Client/img/colere.gif" /> </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <a data-bind="attr: {href : ForumUrl}" href="" target="_blank" class="mdl-navigation__link" style="color:black;">
+
+                <!-- data-bind="click: goToForum"-->
+                <div class="col-md-6 col-xs-6 col-sm-6 clickable accueilItem">
+
+
+                    <div>
+                        <img alt="forum" src="Client/img/orange.png" class="imgAccueil" />
+                    </div>
+
+                    <div class="">
+                        Forum
+                    </div>
+
+                </div>
+
+            </a>
+
+            <a data-bind="attr: {href : BlogUrl}" href="" target="_blank" class="mdl-navigation__link" style="color:black;">
+
+                <!--data-bind="click: goToBlog "-->
+                <div class="col-md-6 col-xs-6 col-sm-6 clickable form-group accueilItem">
+
+                    <div>
+                        <img alt="blog" src="Client/img/B.png" class="imgAccueil" />
+                    </div>
+
+                    <div class="">
+                        FrutiBlog
+                    </div>
+
+                </div>
+            </a>
+
+            <div class="col-md-12 col-xs-12 col-sm-12 accueilItem" style="margin-top:5px;" data-bind="click: goToHisto ">
+
+                <div class="clickable" data-bind="visible:!Historique.CurrentHistorique()">
+                    <div>
+                        <i class="fa fa-clock-o" aria-hidden="true" style="font-size:50px;color:#72b023"></i>
+                    </div>
+
+                    <div class="">
+                        Historique
+                    </div>
+                </div>
+                <!-- ko if: Historique.CurrentHistorique-->
+
+
+                <div class="" style="margin-top: -10px;user-select:none;width:100%;height: 110px;background-color:#CBF598;border:2px solid #D0DEC2;border-radius:3px;margin-bottom:5px;">
+
+                    <i data-bind="click:Historique.PreviousHistoric, visible : currentIndexHisto()>0" class="fa fa-chevron-circle-left clickable" style="font-size:70px;z-index:60; position:absolute; opacity:0.7; left:15px;top:25px; " aria-hidden="true"></i>
+
+                    <div style="width:100%;text-align:center; padding-top:10px;">
+                        <!-- ko if: Historique.CurrentHistorique().environement() == "forum"-->
+                        <img alt="icone" src="Client/img/fraise.png" style="width:45px;height:45px;" />
+                        <!--/ko-->
+                        <!-- ko if: Historique.CurrentHistorique().environement() == "totoche"-->
+                        <img alt="icone" src="Client/img/totoche.svg" style="width:45px;height:45px;" />
+                        <!--/ko-->
+                        <!-- ko if: Historique.CurrentHistorique().environement() == "boutique"-->
+                        <img alt="icone" src="Client/img/pasteque.png" style="width:45px;height:45px;" />
+                        <!--/ko-->
+                        <!-- ko if: Historique.CurrentHistorique().environement() == "kikooz"-->
+                        <img alt="icone" src="Client/img/kikooz.png" style="width:45px;height:45px;" />
+                        <!--/ko-->
+                    </div>
+
+                    <div style="z-index:800; text-align:center; width:100%; height:49%; overflow-y:auto;" class="">
+                        <span data-bind="text:Historique.CurrentHistorique().dateMessage" class="TexteGras"> sam 30 juin 10:54 </span> -
+
+                        <span data-bind="text:Historique.CurrentHistorique().message"> </span>
+
+                    </div>
+
+                    <i data-bind="click:Historique.NextHistoric,visible : currentIndexHisto() < IndexHistoMax()" class="fa fa-chevron-circle-right clickable" style="font-size:70px;z-index:60;position:absolute; opacity:0.7;right:20px;top:25px;" aria-hidden="true"></i>
+                </div>
+
+
+
+                <!--/ko-->
+
+            </div>
+
+            <div class="col-md-12 col-xs-12 col-sm-12 annuaireItem" style="margin-top:20px; margin-bottom:10px; overflow:hidden; overflow-y:auto;">
+
+                <div class="clickable" style="padding-bottom:10px;">
+                    <div>
+                        <i class="fa fa-book" aria-hidden="true" style="font-size:50px;color:#72b023"></i>
+                    </div>
+
+                    <div class="">
+                        Annuaire
+                    </div>
+                    <div style="text-align: center; z-index: 343;">
+                        <input type="search" autocomplete="off" placeholder="pseudo" data-bind="textInput : Annuaire.keyword,event: {keypress: Annuaire.enterSearch}">
+                    </div>
+
+                    <div data-bind="foreach:Annuaire.ListeSearch">
+
+                        <div class="anuaireUser clickable" style="height:30px; line-height:30px; border-radius:10px;" data-bind="click: $root.clickOnpseudoInAnnuaire">
+                            <i class="fa fa-user FrutiheaderButton" style="font-size:19px;" aria-hidden="true"></i>
+                            <span class="" data-bind="text:$root.capitalizeFirstLetterNO($data)"> </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <!--FIN Accueil-->
+        <!--Profil user-->
+        <div data-bind="visible:ProfilVisible">
+
+
+            <div style="text-align:center;" data-bind="visible:loaderProfil">
+                <img alt="icone" src="Client/img/ajax-loader-small.gif" />
+            </div>
+
+
+
+            <div data-bind="foreach : ListeProfilOuvert">
+
+                <div style="margin-left:auto;margin-right:auto;width:100%; max-width:400px; background-color:white; overflow:hidden;" class="borderProfil ProfilFenetreContainerMobile ui-widget-content iconetest OneWindows" data-bind="style:{height : extensionProfil() ? '435px' : '120px' } ">
+
+                    <div class="movable AddZoneContactNoirIn">
+                        <div data-bind="style:{ 'background-image' : ProfilBgSrc}" class="ZoneDraggable firstContainer" style="height: 125px;padding-left:0px;background-repeat:no-repeat;">
+                            <div style="display:block;">
+                                <div class="AvatarHeader" style="display:inline-block;user-select:none;float: left; margin-top:10px; margin-left:10px; width:100px; height:100px; background-color: #C4F295; border-style:solid; border-width:1px; border-radius:10px;">
+
+                                    <div style="width:100px; height:100px; position:absolute; margin-left:5px;margin-top:10px;">
+
+                                        <img alt="tete" data-bind="attr:{src: Avatar.tete}"
+                                             style="position:relative; z-index:1; width:85px; height:85px" />
+
+                                        <img alt="cheveux" data-bind="attr:{src: Avatar.cheveux, class : Avatar.ClassCheveux }"
+                                             style="position:relative; z-index:3;" />
+
+
+                                        <img alt="yeux" data-bind="attr:{src: Avatar.yeux}"
+                                             style="position:relative;width:45px; height:45px;z-index:2; margin-top:-130px;margin-left:10px;" />
+
+
+                                        <img alt="bouche" data-bind="attr:{src: Avatar.bouche, class : Avatar.ClassBouche}" />
+
+
+                                        <img alt="chapeau" data-bind="visible: Avatar.chapeau, attr:{src: Avatar.chapeau, class : Avatar.Classchapeau }"
+                                             style="position:relative; z-index:3;" />
+
+
+
+                                    </div>
+
+
+                                </div>
+
+                                <div style="display:flex;">
+
+                                    <div style="display:flex; margin-left:5px;">
+                                        <div data-bind="style: {'background-color' : $root.convertEnumOnlineToColor(isOnline)}" style="float:left;margin-top:3px; background-color:green; width:10px; height:10px; border-radius:5px;"> </div>
+                                        <span class="TexteGras" style="padding-left:5px;" data-bind="css : genre == 'M' ? 'Homme'  : 'Femme', text:$root.capitalizeFirstLetterNO(pseudo)"> </span>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div style="margin-left:120px; display:flex;">
+                                <span data-bind="text:CalculAge()"> </span> ans  <span data-bind="visible:isBirthDay()"> <i class="fa fa-birthday-cake"></i> </span> -
+                                <span data-bind="text:region"> </span>
+
+                            </div>
+
+                            <div style="float:right; margin-top:45px;">
+
+                                <span>
+                                    <i class="fa fa-times clickable FenetreCloseProfil" style="font-size:36px;" data-bind=" click:close" aria-hidden="true"></i>
+                                </span>
+                            </div>
+
+                            <div style="margin-left:120px; display:flex;">
+
+                                <div style="width:40px;">
+                                    <img alt="icone" data-bind="click :$parent.InvitForPrivateTchat" class="clickable profilIcone" style="" src="Client/img/tchatIcon.svg" />
+                                </div>
+                                <div style="width:40px;">
+                                    <img alt="icone" data-bind="click :SendMail" class="clickable profilIcone" style="" src="Client/img/MailIcon.svg" />
+                                </div>
+                                <div style="width:40px;">
+                                    <img alt="icone" data-bind="click : $parent.AddFavourite" class="clickable profilIcone" style="" src="Client/img/favouriteIcon.svg" />
+                                </div>
+                                <div style="width:40px;">
+                                    <img alt="icone" data-bind="click: $parent.OpenBlog" class="clickable profilIcone" style="" src="Client/img/frutiblog.svg" />
+                                </div>
+                                <div style="width:40px;">
+                                    <img alt="icone" data-bind="click: OpenAddInListeNoir" class="clickable profilIcone" style="" src="Client/img/BlackListIcon.svg" />
+                                </div>
+
+
+
+
+
+                            </div>
+                        </div>
+
+                        <!--extension profil-->
+                        <div class="NoSelect" data-bind="visible:extensionProfil" style="cursor: default; width:calc(100% - 7px);height: 303px; margin-top: 2px; background-color:#DDFEBA; margin-left:4px; border-radius:5px; border:1px solid #DDDDDD;">
+
+                            <div style="width:100%; height:30px; margin-top:5px;">
+
+                                <div style="width:33%; float:left; text-align:center;">
+                                    <span class="clickable TexteGras" data-bind="click:extensionFrutizSetVisible, style: {color: extensionFrutizVisible() ? '#C7616B' : 'black'} "> Frutiz </span>
+                                </div>
+                                <div style="width:33%; float:right; text-align:center;">
+                                    <span class="clickable TexteGras" data-bind="click:extensionKikoozSetVisible,style: {color: extensionKikoozVisible() ? '#C7616B' : 'black'}"> Kikooz </span>
+                                </div>
+                                <div style="width:33%; float:right; text-align:center;">
+                                    <span class="clickable TexteGras" data-bind="click:extensionDescriptionSetVisible,style: {color: extensionDescriptionVisible() ? '#C7616B' : 'black'}"> Description </span>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div data-bind="visible:extensionFrutizVisible">
+
+                                <div style="margin-left:150px; width:100%;padding-top:10px;">
+                                    <div style="float:left; margin-top:10px;">
+                                        <span style="color:#71AF47;font-weight:bold;">  NIV. <span data-bind="text: experienceObject.playerLevel"> </span></span>
+                                    </div>
+
+
+                                    <div class="c100 small green" style="float:left; margin-top:-20px;" data-bind="css : experienceObject.P_pourcentageRestant">
+                                        <span> <span data-bind="text:experienceObject.pourcentageRestant"></span><span> %</span> </span>
+                                        <div class="slice">
+                                            <div class="bar"></div>
+                                            <div class="fill"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="width:100%; height:100%;padding-top:70px;padding-left: 10px; padding-right: 10px;  ">
+
+                                    <div style="border-top: 3px solid #AAE56B; width:100%; padding-top:5px;">
+                                        <div style="width:50%;float:left;color:#71AF47;font-weight:bold;">
+                                            <span> FrutiJob : </span>
+                                        </div>
+                                        <div style="width:50%;float:right;text-align:right; ">
+                                            <span data-bind="text:FrutiJob"> Fruti-Zoneur </span>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div style="width:100%;  padding-top:30px;">
+                                        <div style="width:50%;float:left;color:#71AF47;font-weight:bold;">
+                                            <span> FrutiAge : </span>
+                                        </div>
+                                        <div style="width:50%;float:right;text-align:right;">
+                                            <span data-bind="text:FrutiAge()"> </span>
+                                        </div>
+
+                                    </div>
+
+                                    <div style="width:100%; padding-top:30px;">
+                                        <div style="width:50%;float:left;color:#71AF47;font-weight:bold;">
+                                            <span> Inscription : </span>
+                                        </div>
+                                        <div style="width:50%;float:right;text-align:right;">
+                                            <span data-bind="text:_dateInscription()"> </span>
+                                        </div>
+
+                                    </div>
+
+                                    <div style="width:100%; padding-top:30px;">
+                                        <div style="width:50%;float:left;color:#71AF47;font-weight:bold;">
+                                            <span> Messages forum : </span>
+                                        </div>
+                                        <div style="width:50%;float:right;text-align:right;">
+                                            <span data-bind="text:forumPost"> </span>
+                                        </div>
+
+                                    </div>
+
+                                    <div style="width:100%; padding-top:30px;">
+                                        <div style="width:50%;float:left;color:#71AF47;font-weight:bold;">
+                                            <span> Dernier article : </span>
+                                        </div>
+                                        <div style="width:50%;float:right;text-align:right;">
+                                            <span data-bind="text:_dateLastArticle()"> </span>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+                            <div data-bind="visible:extensionDescriptionVisible">
+
+                                <div style="float:right; margin-top: 240px; margin-right: 20px;" data-bind="visible :MyProfil()">
+                                    <span class="clickable" style="font-style:italic;" data-bind="click: ModifyDescription">
+
+                                        <span data-bind="visible:!ModifyDescriptionVisible()"> Modifier </span>
+                                        <span data-bind="visible:ModifyDescriptionVisible" style="color:red;"> Annuler </span>
+
+                                        <i class="fa fa-edit" style="font-size:26px;"></i>
+                                    </span>
+                                </div>
+
+
+                                <div style="width:100%;max-width:360px; height: 100%; padding-right: 20px; padding-left: 20px; word-wrap: break-word;" data-bind="visible: !ModifyDescriptionVisible()">
+
+                                    <div style="width:100%;" data-bind="text:ProfilDescription">
+                                        Je n'ai pas encore changé ma description :)
+                                    </div>
+
+                                </div>
+
+                                <div style="position: absolute; width: 400px;padding-right: 30px; padding-left:15px; word-wrap: break-word;" data-bind="visible: ModifyDescriptionVisible()">
+
+                                    <div class="styled-input wide">
+                                        <textarea style="resize: none;width:100%;border-style: solid;border-width: 0.5px;border-color: #C9EF9D;" required maxlength="500" data-bind="value: _ProfilDescription" rows="5"></textarea>
+                                        <label>Description</label>
+                                        <span></span>
+                                    </div>
+
+                                    <div style="margin-bottom:5px;">
+                                        <div>
+                                            fond d'écran du profil
+                                        </div>
+                                        <select data-bind="options: $root.ListeProfilUser, optionsText: 'nom', value : profilBgSelected" size="1"></select>
+                                    </div>
+
+
+
+                                    <span class="clickable" style="font-style:italic;" data-bind="click: saveProfil">
+
+                                        <span style="color:green"> Sauvegarder </span>
+
+                                        <i class="fa fa-save" style="font-size:26px;color:green;"></i>
+                                    </span>
+
+
+                                </div>
+
+
+
+
+                            </div>
+
+
+                            <div data-bind="visible:extensionKikoozVisible">
+
+                                <div style="text-align:center; margin-top:50px;">
+
+                                    <div>
+                                        <img alt="icone" style="width:25px; height:25px;" src="Client/img/kikooz.png">
+                                    </div>
+                                    Don de kikooz
+                                    <div>
+                                        <input class="" type="number" min="0" max="200" style="width:60px;" data-bind="value:KikoozToSend" />
+                                        <span class="clickable" style="color:green" data-bind="click:SendKikooz">
+                                            <i class="fa fa-exchange clickable" style="font-size:18px;"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <!--Fin profil user-->
+        <!--Salon-->
+        <div data-bind="visible:listMenu()[1].isSelect" class="">
+
+
+            <div data-bind="visible:ListeSalonVisible" style="height:100%; " class="">
+
+                <div style="display:flex;">
+
+                    <div style="text-align:center;width:80%;">
+                        <i class="fa fa-list"></i>
+                    </div>
+
+                    <div style="width:20%;">
+                        <i class="fa fa-user"></i>
+                    </div>
+
+                </div>
+
+                <!--Liste des salons-->
+                <div data-bind="foreach: ListeSalonArray" style="">
+                    <div class="salonItem clickable" data-bind="click:$root.OpenOneSalon" style="display:flex; height:35px; line-height:35px; ">
+
+                        <div style="width:80%;text-overflow:ellipsis; overflow:hidden;padding-left:5px;">
+                            <i class="fa fa-comment" style="color:dodgerblue" data-bind="visible:newMessage"></i>
+                            <span data-bind="text:Libelle"> </span>
+                        </div>
+
+                        <div style="width:20%">
+                            <span>  <span data-bind="text:nbco"> </span> </span>
+                        </div>
+
+                    </div>
+                </div>
+                <!--FIN Liste des salons-->
+
+
+                <div style="width:100%;display:flex;">
+
+                    <div style="text-align:center;width:80%;" data-bind="">
+                        <i class="fa fa-user-secret"></i>
+                    </div>
+
+                    <div style="width:20%;" data-bind="">
+                        <i class="fa fa-user"></i>
+                    </div>
+
+                </div>
+
+
+
+                <!--Liste des salons privé-->
+                <div>
+                    <div data-bind="foreach: ListeSalonOuvert" style="">
+
+                        <!-- ko if:FlagPrivate() || FlagNotPublic() -->
+                        <div class="salonItem clickable" data-bind="click:$root.OpenOneSalon" style="display:flex; height:35px; line-height:35px;">
+                            <div style="width:80%;text-overflow:ellipsis; overflow:hidden;padding-left:5px;">
+                                <i class="fa fa-comment" style="color:darkorange" data-bind="visible:newMessage"></i>
+                                <span data-bind="text:Libelle"> </span>
+                            </div>
+
+                            <div style="width:20%">
+                                <span>  <span data-bind="text:NbConnecte"> </span> </span>
+                            </div>
+
+                        </div>
+                        <!-- /ko -->
+                    </div>
+
+                    <div style="text-align:center;">
+                        <input data-bind="value:PrivateSalonInput"  style="width:60%;" maxlength="200" autocomplete="off" />  <button data-bind="click:OpenPrivateSalon" style="width:30%;color:#C7616B;" class="frutiBoutton TexteGras"> Créer </button>
+
+                    </div>
+
+
+                </div>
+
+                <!--FIN Liste des salons privé-->
+
+
+            </div>
+
+
+            <!--Liste des salons ouverts-->
+            <div data-bind="foreach : ListeSalonOuvert">
+
+                <!--Un salon-->
+                <div style="min-height: 250px;" data-bind="visible : IsOpen" class="oneSalon">
+                    <div style="width:100%; height:35px;background-color:#C3F294;line-height:35px;padding-left:5px; display:flex;">
+                        (<span data-bind="text: NbConnecte">  </span>)
+                        <div style="width:40%;max-width:50%;overflow:hidden;text-overflow:ellipsis;">
+
+                            <span data-bind="text : Libelle"> </span>
+
+                        </div>
+
+                        <div style="width:60%;text-align:right;">
+                            <i class="fa fa-compress clickable " style="font-size:25px;padding-right:20px;padding-top:5px; color:#97D356;" data-bind="visible: BouilleBig(),click: SetBouilleTaille"></i>
+                            <i class="fa fa-expand clickable " style="font-size:25px;padding-right:20px;padding-top:5px; color:#97D356;" data-bind="visible: !BouilleBig(), click: SetBouilleTaille"></i>
+
+                            <i class="fa fa-times clickable FenetreClose" style="font-size:30px;" data-bind="click:close" aria-hidden="true"></i>
+                            <i class="fa fa-users clickable" style="font-size:25px; padding-right:20px;padding-top:5px;" data-bind="click:openListeCo"></i>
+                            <i class="fa fa-minus-square clickable" style="font-size:25px;padding-right:20px;padding-top:5px; color:#7AB6EC;" data-bind="click:reduce"></i>
+                            
+
+                        </div>
+
+
+                    </div>
+
+                    <!--Bloc salon-->
+                    <div class="SalonMiddle" style="" data-bind="css: { 'SalonMiddleListeFerme': !blocUserTchatIsOpen(), 'SalonMiddleBouilleShowerFerme': !BouilleShowerIsOpen(), SalonMiddleTousFerme: !blocUserTchatIsOpen()&& !BouilleShowerIsOpen()}">
+                        <div class="middle_top" data-bind="attr : {id : id }" style="height:calc(100vh - 108px)">
+                            <!--style: { 'height': $root.ScreenHeight} ,-->
+                            <div style="padding-left:10px; padding-right:10px;font-style:italic"> Bienvenue sur le salon "<span data-bind="text : Libelle">  </span>" !</div>
+
+                            <div data-bind="foreach : ListeMessage">
+
+                                <!-- ko if:type -->
+                                <div data-bind="click: $root.clickOnpseudoInChat, style: { transform: $parent.BouilleBig() ? 'scale(0.7, 0.7)' : 'scale(0.2, 0.2)', 'margin-top': $parent.BouilleBig() ? '10px' : '-50px', 'padding-top': $parent.BouilleBig() ? '' : '70px' }" class="clickable" id="widget" style="user-select: none;width:100px; height:100px; margin-left:auto;margin-right:auto;padding-left:30px;">
+
+                                    <img alt="tete" data-bind="attr:{src: bouille.tete}"
+                                         style="position:relative; z-index:1; width:85px; height:85px" />
+
+                                    <img alt="cheveux" data-bind="attr:{src: bouille.cheveux, class : bouille.ClassCheveux }"
+                                         style="position:relative; z-index:3; " />
+
+                                    <img alt="yeux" data-bind="attr:{src: bouille.yeux}"
+                                         style="position:relative;width:45px; height:45px;z-index:2; margin-top:-130px;margin-left:10px;" />
+
+
+                                    <img alt="bouche" data-bind="attr:{src: bouille.bouche, class : bouille.ClassBouche}" />
+
+
+                                    <img alt="chapeau" data-bind="visible: bouille.chapeau, attr:{src: bouille.chapeau, class : bouille.Classchapeau }"
+                                         style="position:relative; z-index:3; " />
+
+                                </div>
+
+                                <div class='speech-bubble' style="margin-top:-10px;" data-bind="style:{color: color}">
+
+                                    <span data-bind="text:date"> </span>
+                                    <span style="font-weight:bold;" class="onepseudo" data-bind="text:pseudo"> </span>
+                                    <span data-bind="html:message"> </span>
+                                   
+                                   
+                                   
+
+                                </div>
+                                <!-- /ko -->
+                                <!-- ko if:!type() -->
+                                <div style="margin-top:20px;padding-left:20px;" data-bind="if:!type()">
+                                    <span style="font-style:italic;" data-bind="html:message"> </span>
+                                </div>
+                                <!-- /ko -->
+
+                            </div>
+
+
+                        </div>
+                        <div class="middle_bottom" style="display:flex;">
+                            <input name="email" autocomplete="off" placeholder="dfef" style="width:0px; height:0px; position:absolute; left:-50px;" />
+                           <div style="width:30px; cursor:pointer;" data-bind="click:ClickPhoto">
+                               <i class="fa fa-camera" style="font-size:20px; padding-left:5px;padding-top:10px;"></i>
+                           </div>
+                            
+                            <div style="width:calc(85% - 30px); float:left;" >
+                                <input data-bind="visible:!photo() ,InputEnterKey: $root.InputEnterCallback" class="noOutlining tchatinput" autocomplete="off" style="width: 100%; background-color: #EEEEEE;border-radius: 5px;margin-top: 7px;margin-left: 5px;" />
+                               <div style="text-align:center;"> 
+                                   <i style="padding-right:75px;cursor:pointer;font-size: 25px;padding-top: 8px; color: red;" data-bind="click: cancelPhoto, visible:photo" class="fa fa-times"></i>
+                                   <i  style="cursor:pointer;font-size: 25px;padding-top: 8px; color: blueviolet;" data-bind="visible:photo, ButtonEnterKey:$root.InputEnterCallback" class="fa fa-arrow-circle-right"></i>
+
+                               </div> 
+                            </div>
+
+
+                            <div style="width:15%;text-align:center;float:right;">
+                                <input style="display:none;" class="photo" data-bind="value:photo" type="file" accept="image/*">
+                                <!-- ko if: !FeutreUsing() -->
+                                <span class="clickable" data-bind="click:ChangeFeutreUsing">
+
+                                    <img alt="feutre" src="Client/img/feutre/noir.png" />
+                                </span>
+                                <!-- /ko -->
+                                <!-- ko if: FeutreUsing -->
+                                <span class="clickable" data-bind="click:ChangeFeutreUsing">
+
+                                    <img alt="feutre" data-bind="attr: { src: FeutreUsing().img }" />
+
+
+                                </span>
+                                <!-- /ko -->
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!--FIN un salon-->
+
+
+
+            </div>
+            <!--Liste des salons ouverts-->
+
+
+        </div>
+        <!--FIN Salon-->
+        <!--Messsagerie-->
+        <div data-bind="visible:listMenu()[2].isSelect()" style="height:calc(100vh-35px);">
+
+            <!--<div class="center">
+              Messagerie
+            </div>-->
+
+            <div style="width:100%;  background-color:#F8F866; height:100%;">
+
+                <!--Zone liste mail-->
+                <div data-bind="visible : DossierMail.MailListIsVisible" style="overflow-y:auto;width:100%; height:100%;">
+
+
+
+                    <!-- ko if:! DossierMail.MailOuvert()-->
+                    <div class="SousMenuMob" style="background-color:grey;">
+                        <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4 clickable MailBouton" style="text-align:center;  height:100%;" data-bind="click : DossierMail.NewMailSETVisible">
+
+                            <i class="fa fa-envelope SousMenuMobIcone" style="margin-top:5px;" aria-hidden="true"></i>
+
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4 clickable MailBouton" style="text-align:center;  height:100%; " data-bind="click : DossierMail.SetMailSendListVisible">
+
+                            <i class="fa fa-eye" style="font-size:25px;margin-top:6px;" aria-hidden="true"></i>
+
+                        </div>
+
+                        <!--visible: DossierMail.IsMailCheckedForDelete,-->
+                        <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4 clickable MailDeleteBouton" style="text-align:center;height:100%;" data-bind="click : DossierMail.ClickDeleteEmail">
+
+                            <i data-bind="style: { color: DossierMail.IsMailCheckedForDelete()  ? 'red' : 'black' }" class="fa fa-trash SousMenuMobIcone" style="margin-top:5px;" aria-hidden="true"></i>
+
+
+                        </div>
+
+
+
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko with: DossierMail.MailOuvert-->
+                    <div>
+
+                        <div class="SousMenuMob" style="background-color:grey;">
+                            <div class="col-md-6 col-xs-6 col-sm-6 clickable MailBouton" style="text-align:center;  height:100%;" data-bind="click : $root.DossierMail.CloseMailOuvert">
+
+                                <i class="fa fa-arrow-left SousMenuMobIcone" style="margin-top:5px;" aria-hidden="true"></i>
+
+                            </div>
+                            <div class="col-md-6 col-xs-6 col-sm-6 clickable MailDeleteBouton" style="text-align:center;height:100%;" data-bind="click : $root.DossierMail.NewMailSETVisibleWithExpediteur">
+
+                                <i class="fa fa-envelope SousMenuMobIcone" style="margin-top:5px;" aria-hidden="true"></i>
+
+                            </div>
+
+                        </div>
+
+                        <div style="height:calc(100vh - 70px);">
+
+                            <div style="display:flex;">
+                                <!-- ko with: $root.DossierMail.MailOuvert_Avatar -->
+                                <div class="AvatarHeader clickable" data-bind="click:clicked" style="user-select:none; margin-top:10px;margin-left:10px; width:100px; height:100px; background-color: #C4F295; border-style:solid; border-width:1px; border-radius:10px;">
+
+                                    <div style="width:100px; height:100px;  margin-left:5px;margin-top:10px;">
+
+                                        <img alt="tete" data-bind="attr:{src: Avatar.tete}" style="position:relative; z-index:1; width:85px; height:85px" />
+
+                                        <img alt="cheveux" data-bind="attr:{src: Avatar.cheveux, class : Avatar.ClassCheveux }"
+                                             style="position:relative; z-index:3;" />
+
+
+
+                                        <img alt="yeux" data-bind="attr:{src: Avatar.yeux}"
+                                             style="position:relative;width:45px; height:45px;z-index:2; margin-top:-130px;margin-left:10px;" />
+
+
+                                        <img alt="bouche" data-bind="attr:{src: Avatar.bouche, class : Avatar.ClassBouche}" />
+
+
+                                        <img alt="chapeau" data-bind="visible: Avatar.chapeau, attr:{src: Avatar.chapeau, class : Avatar.Classchapeau }"
+                                             style="position:relative; z-index:3;" />
+
+
+                                    </div>
+
+                                </div>
+                                <!-- /ko -->
+
+                                <div style="text-align:center;padding-left:20px;width:100%;" class="Degrade ">
+                                    <span class="TexteGras TextSizeMobile" data-bind="text : $root.capitalizeFirstLetter(expediteur)"> </span>
+
+                                    <div>
+                                        <span data-bind="text : date"> </span> <span class="" data-bind="text : heure"> </span>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <div style="width:100%; padding-left:10px; padding-right:10px;" class="">
+                                <div>
+                                    <div style="text-align:center; overflow:hidden; text-overflow:ellipsis;">
+                                        <span class="TextGras"> <i class="fa fa-leaf TextSizeMobile" aria-hidden="true"></i>  </span>
+                                    </div>
+                                    <div style="text-align:center;" class="Degrade">
+                                        <span data-bind="html : sujet"> </span>
+                                    </div>
+
+                                </div>
+                                <div style="">
+                                    <div>
+                                        <div style="text-align:center;">
+                                            <span class="TextGras">  <i class="fa fa-envelope-open TextSizeMobile" aria-hidden="true"></i>  </span>
+                                        </div>
+
+                                        <div class="Degrade col-md-8 msgtoshow" data-bind="html : $root.DossierMail.MessageToShow">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko if:! DossierMail.MailOuvert()-->
+                    <div data-bind="foreach: DossierMail.ListeMail" class="">
+
+                        <div class="col-md-12 col-xs-12 col-sm-12 oneMail" data-bind="css: { TextGras : !lu, Degrade: $index()%2}" style="padding-top:20px;padding-bottom:10px;">
+
+                            <div class="col-md-12 clickable">
+                                <div class="col-md-6 col-xs-12 col-sm-12" data-bind="click :$root.DossierMail.ClickOpenEmail" style="text-align:center; padding-bottom:10px;">
+                                    <span class="TextSizeMobile" data-bind="text : $root.capitalizeFirstLetterNO(expediteur)"> </span>
+                                </div>
+                                <div class="col-md-6 col-xs-12 col-sm-12" style="overflow:hidden; " data-bind="click :$root.DossierMail.ClickOpenEmail">
+                                    <span data-bind="html : sujet"> </span>
+                                </div>
+                                <div class="col-md-8 col-xs-8 col-sm-8" style="font-style:italic; padding-top:15px;" data-bind="click :$root.DossierMail.ClickOpenEmail">
+
+                                    <span data-bind="text : date"> </span>
+                                    <span data-bind="text : heure"> </span>
+
+                                </div>
+                                <div class="col-md-4 col-xs-4 col-sm-4" style="text-align:center;padding-top:5px;">
+                                    <!--<input type="checkbox" data-bind="checked : ToDelete" />-->
+
+                                    <div class="pretty p-default" style="font-size:25px;">
+                                        <input type="checkbox" data-bind="checked : ToDelete" />
+                                        <div class="state p-danger">
+                                            <label></label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+                    <div data-bind="visible: !DossierMail.ListeMail().length" class="TextSizeMobile" style="text-align:center; padding-top:50px; height:calc(100vh - 70px)">
+                        <i class="fa fa-envelope" style="color:black;font-size:100px;" aria-hidden="true"></i>
+                        <div>
+                            Aucun message
+                        </div>
+                    </div>
+
+                    <!-- /ko -->
+
+
+                </div>
+
+
+                <!--Zone liste mail envoyé-->
+                <div data-bind="visible : DossierMail.MailSendListIsVisible" style="overflow-y:auto;width:100%; height:100%;">
+
+                    <!-- ko if:! DossierMail.MailOuvert()-->
+                    <div style="height:50px;background-color:grey;">
+                        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 clickable MailBouton" style="text-align:center;  height:100%; " data-bind="click : DossierMail.MailListSETVisible">
+
+                            <i class="fa fa-th-list" style="font-size:25px;margin-top:12px;" aria-hidden="true"></i>
+
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko with: DossierMail.MailOuvert-->
+                    <div>
+
+                        <div style="height:50px; background-color:grey;">
+                            <div class="col-md-12 clickable MailBouton" style="text-align:center;  height:100%; " data-bind="click : $root.DossierMail.CloseMailOuvert">
+
+                                <i class="fa fa-arrow-left" style="font-size:25px;margin-top:12px;" aria-hidden="true"></i>
+
+                            </div>
+
+                        </div>
+
+                        <div style="display:flex;">
+
+                            <div>
+                                <!-- ko with: $root.DossierMail.MailOuvert_Avatar -->
+                                <div class="AvatarHeader clickable" data-bind="click:clicked" style="user-select:none; margin-top:10px;margin-left:10px; width:100px; height:100px; background-color: #C4F295; border-style:solid; border-width:1px; border-radius:10px;">
+
+                                    <div style="width:100px; height:100px;  margin-left:5px;margin-top:10px;">
+
+                                        <img alt="tete" data-bind="attr:{src: Avatar.tete}" style="position:relative; z-index:1; width:85px; height:85px" />
+
+                                        <img alt="cheveux" data-bind="attr:{src: Avatar.cheveux, class : Avatar.ClassCheveux }"
+                                             style="position:relative; z-index:3;" />
+
+                                        <img alt="yeux" data-bind="attr:{src: Avatar.yeux}"
+                                             style="position:relative;width:45px; height:45px;z-index:2; margin-top:-130px;margin-left:10px;" />
+
+                                        <img alt="bouche" data-bind="attr:{src: Avatar.bouche, class : Avatar.ClassBouche}" />
+
+
+                                        <img alt="chapeau" data-bind="visible: Avatar.chapeau, attr:{src: Avatar.chapeau, class : Avatar.Classchapeau }"
+                                             style="position:relative; z-index:3;" />
+
+
+
+                                    </div>
+
+                                </div>
+                                <!-- /ko -->
+
+                                <div style="text-align:center;" class="Degrade">
+                                    <span class="TexteGras" data-bind="text : $root.capitalizeFirstLetter(expediteur)"> </span>
+                                    <div style="font-family:Roboto, sans-serif;font-size:14px;">
+                                        <span data-bind="text : date"> </span> <span class="" data-bind="text : heure"> </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div style="width:100%; margin-left:10px; margin-right:10px;">
+                                <div>
+                                    <div style="text-align:center; overflow:hidden; text-overflow:ellipsis;">
+                                        <span class="TextGras"><i class="fa fa-leaf" aria-hidden="true"></i>   </span>
+                                    </div>
+                                    <div style="text-align:center;font-family:Roboto, sans-serif;font-size:14px;" class="Degrade">
+                                        <span data-bind="html : sujet"> </span>
+                                    </div>
+
+                                </div>
+                                <div style="">
+                                    <div>
+                                        <div style="text-align:center;">
+                                            <span class="TextGras">  <i class="fa fa-envelope-open" aria-hidden="true"></i>  </span>
+                                        </div>
+
+                                        <div class="Degrade col-md-8" style="min-height: 250px; padding-left:10px;padding-right:10px;width:100%;overflow-wrap: break-word;" data-bind="html : $root.DossierMail.MessageToShow">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko if:! DossierMail.MailOuvert()-->
+                    <div data-bind="foreach: DossierMail.ListeMailSend" class="NoSelect">
+
+                        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 oneMail" data-bind="css: { TextGras : !lu, Degrade: $index()%2}" style="height: 60px; ">
+
+                            <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11 clickable" data-bind="click :$root.DossierMail.ClickOpenEmail">
+                                <div class="col-lg-3 col-md-3 col-xs-3 col-sm-3" style="line-height: 60px;">
+                                    <span data-bind="text : $root.capitalizeFirstLetterNO(destinataire)"> </span>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-xs-7 col-sm-7" style="overflow:hidden; text-overflow:ellipsis; ">
+
+                                    <!-- //center vertically-->
+                                    <div style="display: table; height: 60px; overflow: hidden;">
+                                        <div style="display: table-cell; vertical-align: middle;">
+                                            <div>
+                                                <span data-bind="html : sujet"> </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-xs-2 col-sm-2" style="line-height: 30px;" s>
+                                    <div>
+                                        <span data-bind="text : date"> </span>
+                                    </div>
+                                    <div>
+                                        <span data-bind="text : heure"> </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div data-bind="visible: !DossierMail.ListeMail().length" style="text-align:center;">
+                        <i class="fa fa-envelope" style="color:black;font-size:200px;" aria-hidden="true"></i>
+                        <div>
+                            Aucun message envoyé
+                        </div>
+                    </div>
+
+                    <!-- /ko -->
+
+                </div>
+
+
+                <!--Zone new mail-->
+                <div data-bind="visible : DossierMail.NewMailIsVisible" style="height:calc(100vh - 35px)">
+
+                    <div class="SousMenuMob" style=" background-color:grey;">
+                        <div class="col-md-12 col-xs-12 col-sm-12 clickable MailBouton" style="text-align:center;  height:100%;" data-bind="click : DossierMail.MailListSETVisible">
+
+                            <i class="fa fa-th-list SousMenuMobIcone" style="margin-top:5px;" aria-hidden="true"></i>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div style="padding-top:20px; padding-left:20px; padding-right:20px;">
+
+                        <div class="styled-input" style="width: 100%;">
+                            <input type="text" style="width:100%;" required data-bind="value : DossierMail.destinataire">
+                            <label>Destinataire</label>
+                            <span></span>
+                        </div>
+
+                    </div>
+
+                    <div style="margin-top:20px; padding-left:20px; padding-right:20px;">
+
+                        <div class="styled-input" style="width: 100%;">
+                            <input type="text" style="width:100%;" required maxlength="100" autocomplete="off" data-bind="value: DossierMail.sujet">
+                            <label>Sujet</label>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div style="margin-top:20px;padding-left:20px; padding-right:20px;">
+
+                        <div class="styled-input wide">
+                            <textarea style="resize: vertical;width:100%;" required maxlength="1000" data-bind="value: DossierMail.message" rows="5"></textarea>
+                            <label>Message</label>
+                            <span></span>
+                        </div>
+
+                    </div>
+                    <div style="padding-left:20px;padding-top:10px;" class="">
+                        <button class="frutiBoutton" style="margin-top:10px;width:50%; height:35px;" data-bind="click:DossierMail.ClickSendMail"> Envoyer mail </button>
+                        <div style="font-style:italic;">
+                            la bouille actuelle sera envoyé avec le message !
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </div>
+        <!--FIN Messagerie-->
+        <!--mes items-->
+        <div data-bind="visible:listMenu()[3].isSelect()">
+
+            <!--<div class="center">
+                Mes items
+            </div>-->
+
+
+            <div class="" style="width:100%; height:100%; background-color:#D8F7B9;overflow:hidden;overflow-y:auto;" data-bind="foreach:MesItems.ItemUser, visible: MesItems.ItemUser().length> 0">
+
+                <div class="MyItem" style="min-height:75px;display: flex; ">
+
+                    <div style="width:49%;  text-align:center;">
+
+                        <img alt="accessoire" data-bind="attr:{src:lien()}" src="Client/img/SVG/Chapeau/hippo/bleu.svg" style="width:100px; height:100px;" />
+
+                    </div>
+                    <div style="width:49%;text-align:center;word-break:break-word; padding-top:10px;">
+
+                        <span data-bind="text: description"> </span>
+                        <div>
+                            <button data-bind="visible: !isUtilise() , click: utiliser" style="background-color:#AAE56C; border-color:#AAE56C;">
+                                utilisé
+                            </button>
+                            <button data-bind="visible: isUtilise, click: enlever" style="background-color:red; border-color:red;">
+                                enlever
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="text-align:center;width:100%; height:100%; background-color:#D8F7B9;" data-bind="visible:MesItems.ItemUser().length==0">
+                Pour obtenir des items rends toi sur <span class="clickable" style="color:#C7616B" data-bind="click:function(){listMenu()[5].Select(42)}">la boutique <img alt="icone" style="width:25px; height:25px;" src="Client/img/pasteque.png" /></span> !
+            </div>
+
+
+
+        </div>
+        <!--FIN mes items-->
+        <!--mes contacts-->
+        <div data-bind="visible:listMenu()[4].isSelect()">
+
+            <div class="" style="height:50px; background-color:grey;">
+                <div class="col-md-6 col-xs-6 col-sm-6 clickable MailBouton" style="text-align:center;  height:100%;" data-bind="click:ContactShow">
+
+                    <i class="fa fa-user" style="font-size:35px;margin-top:5px; color:antiquewhite" aria-hidden="true"></i>
+
+                </div>
+                <!--visible: DossierMail.IsMailCheckedForDelete,-->
+                <div class="col-md-6 col-xs-6 col-sm-6 clickable MailDeleteBouton" style="text-align:center;height:100%;" data-bind="click:ContactNoirShow">
+
+                    <i class="fa fa-user-times" style="font-size: 35px; margin-top: 5px; color: purple;" aria-hidden="true"></i>
+
+
+                </div>
+
+            </div>
+
+
+            <!--dossier des contacts -->
+            <div data-bind="visible:ContactVisible">
+                <div class="ZoneMesContacts">
+
+
+                    <div style="position:absolute; right:25px; margin-top:5px;">
+                        <input autocomplete="off" class="inSearchContact" placeholder="Recherche..." data-bind="value: contact.searchString, visible: contact.searchStringVisible" style="width:120px;background-color:#F57F17; border-color:white; border-radius:10px;border: 1px solid; padding-left:7px;" />
+                    </div>
+
+
+                    <div data-bind="foreach: contact.listContact">
+
+                        <!-- ko if: isVisible-->
+                        <div class="OneContactZone" style="display:flex;height:140px;">
+                            <div>
+
+                                <div class="AvatarHeader clickable" data-bind="click: $parent.clickOnpseudoInContactZone" style="user-select:none;margin-top:10px;margin-left:10px; width:100px; height:100px; background-color: #C4F295; border-style:solid; border-width:1px; border-radius:10px;">
+
+                                    <div style="width:100px; height:100px;margin-left:5px;margin-top:10px;">
+
+                                        <img alt="tete" data-bind="attr:{src: Avatar.tete}"
+                                             style="position:relative; z-index:1; width:85px; height:85px" />
+
+                                        <img alt="cheveux" data-bind="attr:{src: Avatar.cheveux, class : Avatar.ClassCheveux }"
+                                             style="position:relative; z-index:3;" />
+
+                                        <img alt="yeux" data-bind="attr:{src: Avatar.yeux}"
+                                             style="position:relative;width:45px; height:45px;z-index:2;margin-top:-130px;margin-left:10px;" />
+
+
+                                        <img alt="bouche" data-bind="attr:{src: Avatar.bouche, class : Avatar.ClassBouche}" />
+
+                                        <img alt="chapeau" data-bind="visible: Avatar.chapeau, attr:{src: Avatar.chapeau, class : Avatar.Classchapeau }"
+                                             style="position:relative; z-index:3;" />
+
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div style="width:100%;height:140px; margin-left:50px;display:flex;">
+                                <div style="line-height:140px;display:flex;">
+                                    <div data-bind="style: {'background-color' : $root.convertEnumOnlineToColor(isOnline)}" style="margin-top:65px;margin-right:5px; background-color:green; width:10px; height:10px; border-radius:5px;"> </div>
+
+                                    <span class="" style="font-size:15px;" data-bind="text: $root.capitalizeFirstLetterNO(friendName)"> </span>
+                                </div>
+                                <div style="width:100%; text-align:right;line-height:140px;padding-right:5px;">
+                                    <i data-bind="click:$parent.contact.deleteContact" class="fa fa-trash clickable" style="font-size:35px; text-align:right; " aria-hidden="true"></i>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--/ko-->
+
+                    </div>
+
+                    <div data-bind="visible:contact.listContact().length==0" style="text-align:center;">
+                        Ajoute des amis pour savoir qui est connecté et communiquer plus facilement.
+                        <div class="TexteGras" style="margin-top:100px;">
+                            <i class="fa fa-user-times" style="color:red" aria-hidden="true"></i> la liste d'amis est vide
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!--Fin dossier des contacts -->
+            <!--dossier des contacts NOIR -->
+            <div data-bind="visible:ContactNoirVisible">
+
+                <div class="ZoneContactNoir" style="">
+
+                    <div data-bind="foreach: DossierContact_noir.listContact">
+
+                        <!-- ko if: isVisible-->
+                        <div class="OneContactZoneNoir" style="display:flex; height:140px;">
+                            <div>
+
+                                <div class="AvatarHeader clickable" data-bind="click: $parent.clickOnpseudoInContactZone" style="user-select:none; margin-top:10px; margin-left:10px; width:100px; height:100px; background-color: #C4F295; border-style:solid; border-width:1px; border-radius:10px;">
+
+                                    <div style="width:100px; height:100px;  margin-left:5px;margin-top:10px;">
+
+                                        <img alt="tete" data-bind="attr:{src: Avatar.tete}"
+                                             style="position:relative; z-index:1; width:85px; height:85px" />
+
+                                        <img alt="cheveux" data-bind="attr:{src: Avatar.cheveux, class : Avatar.ClassCheveux }"
+                                             style="position:relative; z-index:3;" />
+
+                                        <img alt="yeux" data-bind="attr:{src: Avatar.yeux}"
+                                             style="position:relative;width:45px; height:45px;z-index:2; margin-top:-130px;margin-left:10px;" />
+
+
+                                        <img alt="bouche" data-bind="attr:{src: Avatar.bouche, class : Avatar.ClassBouche}" />
+
+
+                                        <img alt="chapeau" data-bind="visible: Avatar.chapeau, attr:{src: Avatar.chapeau, class : Avatar.Classchapeau }"
+                                             style="position:relative; z-index:3;" />
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div style="width:100%;height:140px; margin-left:50px;display:flex;">
+                                <div>
+                                    <span style="line-height:140px;font-size:15px;" data-bind="text:  $root.capitalizeFirstLetterNO(friendName)"> </span>
+                                </div>
+                                <div style="width:100%; text-align:right;line-height:140px;padding-right:5px;">
+                                    <i data-bind="click: $parent.DossierContact_noir.OpenPopUpDeleteContact" style="font-size:35px; text-align:right; " class="fa fa-trash clickable" aria-hidden="true"></i>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!--/ko-->
+
+                    </div>
+
+                    <div data-bind="visible:DossierContact_noir.listContact().length ==0" style="text-align:center;">
+                        Les contacts dans la liste noire ne peuvent plus communiquer avec toi.
+
+                        <div class="TexteGras" style="margin-top:100px;">
+                            <i class="fa fa-user-times" style="color:red" aria-hidden="true"></i> la liste noire est vide
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <!--Fin dossier des contacts NOIR -->
+
+        </div>
+        <!--FIN mes items-->
+        <!--mes Jeux-->
+        <div data-bind="visible:listMenu()[5].isSelect()">
+
+            <div class="" style="width:100%; height:100%; background-color:#D8F7B9;overflow:hidden;overflow-y:auto;">
+
+                <div data-bind="click: StartFraiseKerosene" style="border-style: solid;border-width: 0 0 4px 0;border-color:#DEFEBB; cursor:pointer;">
+                    <div style="text-align: center;">
+                        <img alt="FireWater" src="Client/img/lowpolyfraise.png" style="margin-left:10px; width:40px; height:50px;">
+                        <div style="font-style: italic; font-size: 11px; z-index: 234;">
+                            La fraise sous Kérosène
+                        </div>
+
+                    </div>
+                   
+                    <div style="width:100%;">
+
+                        <div style="font-style:italic;">
+                            Partie du jour 
+                            <span style="" data-bind="text: FraiseKerosene.PartieDuJour"></span>
+                        </div>
+                        <div style="font-style:italic;">
+                            Partie acheté 
+                            <span style="" data-bind="text: FraiseKerosene.PartieAchete"> </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div data-bind="click: StartFireWater" style="border-style: solid;border-width: 0 0 4px 0;border-color:#DEFEBB; cursor:pointer;">
+                    <div style="text-align: center;">
+                        <img alt="FireWater" src="Client/img/FireWater.png" style="width:50px; height:50px;" />
+                        <div style="font-style:italic; font-size:11px;">
+                            FireWater 3D
+                        </div>
+
+                    </div>
+
+                    <div style="width:100%;">
+
+                        <div style="font-style:italic;">
+                            Partie du jour 
+                            <span style="" data-bind="text: FireWater.PartieDuJour"></span>
+                        </div>
+                        <div style="font-style:italic;">
+                            Partie acheté 
+                            <span style="" data-bind="text: FireWater.PartieAchete"> </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+        <!--FIN mes jeux-->
+
+        <!--Boutique-->
+        <div data-bind="visible:listMenu()[6].isSelect()" style="height:calc(100vh - 35px); background-color:white;">
+
+
+            <!--Boutique -->
+            <div style="padding-bottom:35px; width:100%; height:100%;">
+                <div style="width:100%; height:100%; background-color:white">
+
+                    <div style="float:left;width:100%; height:100%;">
+                        <div data-bind="visible : !Boutique.IsOpenAchatKikooz() && !Boutique.isVisibleHistoAchat()">
+                            <!--zONE vISU article-->
+                            <div class="ZoneVisuArticle" style="height:calc(100vh - 350px);min-height:160px ;min-width:100%; background-color:#CAF597; border:2px solid #C8D9B8; border-radius:3px;">
+
+                                <!--Fenetre Accepter ou refuser Achat-->
+                                <div data-bind="AchatDragable:1, visible: Boutique.IsVisibleAcheterPopUp" style="display:none; cursor:move;padding:5px;top: 100px; right:100px;background-color:white;height:100px; width:200px; position:absolute; border:2px solid #C8D9B8; border-radius:5px;z-index:3;">
+                                    <div>
+                                        Tu veux acheter "<span class="TexteGras" data-bind="text : Boutique.VisualisationAchat.nom"> </span>" pour <span data-bind="text : Boutique.VisualisationAchat.prix"> </span> <img alt="kikooz" style="width:23px; height:23px;" src="Client/img/kikooz.png" /> ?
+                                    </div>
+                                    <div style="text-align:center;margin-top:5px;">
+                                        <span> <button data-bind="click:Boutique.AccepterAchat" class="frutiBouttonAchat" style="width:50px;"> Oui </button>  </span>
+                                        <span> <button data-bind="click:Boutique.CloseAcheterPopUp" class="frutiBouttonCancel"> Annuler </button>  </span>
+                                    </div>
+                                </div>
+                                <!--div pour griser derière-->
+                                <div data-bind="visible: Boutique.IsVisibleAcheterPopUp" style="position:absolute;height:calc(100vh - 355px); width:calc(100% - 5px);background-color:black;opacity:0.2; z-index:2; border:2px solid black; border-radius:3px;">
+                                </div>
+                                <!--Fin div pour griser derière-->
+                                <!--FIN Fenetre Accepter ou refuser Achat-->
+
+                                <div style="float:left; width:40%;" data-bind="if: Boutique.VisualisationAchat.type() && Boutique.VisualisationAchat.type()!= 'FondProfil' && Boutique.VisualisationAchat.type()!= 'item' ">
+
+                                    <div>
+                                        <div style="">
+                                            <img alt="visuAchat" data-bind="attr:{src: Boutique.VisualisationAchat.src}" style="max-width:75px; max-height:75px;" />
+                                        </div>
+
+                                        <div data-bind="visible: !Boutique.VisualisationAchat.isPossede()">
+                                            <button data-bind="click: Boutique.OpenAcheterPopUp" class="frutiBouttonAchat" style="margin-top:10px;">
+                                                Acheter
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!--//pour les items-->
+                                <div style="float:left; width:40%;" data-bind="if: Boutique.VisualisationAchat.type() && Boutique.VisualisationAchat.type()== 'item' ">
+
+                                    <div>
+
+                                        <div class="AvatarHeader" style="user-select:none;margin-top:10px;margin-left:10px; width:100px; height:100px; background-color: white; border-style:solid; border-width:1px; border-radius:10px;">
+
+                                            <div style="width:100px; height:100px;margin-left:5px;margin-top:10px;">
+
+                                                <img alt="tete" data-bind="attr:{src: Boutique.VisualisationAchat.Avatar.tete}"
+                                                     style="position:relative; z-index:1; width:85px; height:85px" />
+
+                                                <img alt="cheveux" data-bind="attr:{src: Boutique.VisualisationAchat.Avatar.cheveux, class : Boutique.VisualisationAchat.Avatar.ClassCheveux }"
+                                                     style="position:relative; z-index:3;" />
+
+
+                                                <img alt="yeux" data-bind="attr:{src: Boutique.VisualisationAchat.Avatar.yeux}"
+                                                     style="position:relative;width:45px; height:45px;z-index:2;margin-top:-130px;margin-left:10px;" />
+
+
+                                                <img alt="bouche" data-bind="attr:{src: Boutique.VisualisationAchat.Avatar.bouche, class : Boutique.VisualisationAchat.Avatar.ClassBouche}" />
+
+
+                                                <img alt="chapeau" data-bind="visible: Boutique.VisualisationAchat.Avatar.chapeau, attr:{src: Boutique.VisualisationAchat.Avatar.chapeau, class : Boutique.VisualisationAchat.Avatar.Classchapeau }"
+                                                     style="position:relative; z-index:3;" />
+
+
+                                            </div>
+
+                                        </div>
+
+                                        <div data-bind="visible: !Boutique.VisualisationAchat.isPossede()">
+                                            <button data-bind="click: Boutique.OpenAcheterPopUp" class="frutiBouttonAchat" style="margin-top:10px;">
+                                                Acheter
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                                <!--//pour les fond profil-->
+                                <div style="width:100%;" data-bind="if: Boutique.VisualisationAchat.type() && Boutique.VisualisationAchat.type()== 'FondProfil' ">
+                                    <div>
+                                        <div style="">
+                                            <img alt="visuAchat" data-bind="attr:{src: Boutique.VisualisationAchat.src}" style="width:100%; height:100px;border-radius:10px;padding:5px;" />
+                                        </div>
+
+                                        <div data-bind="visible: !Boutique.VisualisationAchat.isPossede()" style="margin-top:10px; text-align:center;">
+                                            <button data-bind="click: Boutique.OpenAcheterPopUp" class="frutiBouttonAchat">
+                                                Acheter
+                                            </button>
+                                            <!--<button data-bind="click: Boutique.TestFondProfil" class="frutiBouttonAchat" style="width:50px;">
+                                                Tester
+                                            </button>-->
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!--DESCRIPTION PRIX-->
+                                <div style="float:left; width:60%;" data-bind="if: Boutique.VisualisationAchat.type() && Boutique.VisualisationAchat.type()!= 'FondProfil'">
+
+                                    <div>
+                                        <span class="TexteGras" data-bind="text : Boutique.VisualisationAchat.nom"> </span>
+                                    </div>
+                                    <div style="margin-top:10px;">
+                                        <span data-bind="text : Boutique.VisualisationAchat.description, style:{color: Boutique.VisualisationAchat.couleur}"> </span>
+                                    </div>
+
+                                    <div style="margin-top:20px;">
+                                        <span data-bind="text : Boutique.VisualisationAchat.prix"> </span> <img alt="kikooz" data-bind="visible : Boutique.VisualisationAchat.nom" style="width:25px; height:25px;" src="Client/img/kikooz.png" />
+                                    </div>
+
+
+                                </div>
+
+                                <div style="float:left; width:100%;" data-bind="if: Boutique.VisualisationAchat.type() && Boutique.VisualisationAchat.type()== 'FondProfil'">
+
+                                    <div style="text-align:center;">
+                                        <span class="TexteGras" data-bind="text : Boutique.VisualisationAchat.nom"> </span>
+                                    </div>
+                                    <div style="margin-top:10px;">
+                                        <span data-bind="text : Boutique.VisualisationAchat.description, style:{color: Boutique.VisualisationAchat.couleur}"> </span>
+                                    </div>
+
+                                    <div style="margin-top:7px; text-align:center;">
+                                        <span data-bind="text : Boutique.VisualisationAchat.prix"> </span> <img alt="kikooz" data-bind="visible : Boutique.VisualisationAchat.nom" style="width:25px; height:25px;" src="Client/img/kikooz.png" />
+                                    </div>
+
+
+                                </div>
+                                <!--fin DESCRIPTION PRIX-->
+
+
+                                <div style="width:100%;" data-bind="if: !Boutique.VisualisationAchat.type()  ">
+
+                                    <div style="text-align:center; font-weight:bold; ">
+                                        Bienvenue sur la boutique !
+                                    </div>
+
+                                    <div style="text-align:center; margin-top: 20px;">
+                                        Découvre vite l'offre de lancement du site ! un magnifique fond d'écran pour personnaliser ton profil pour 0 <img alt="kikooz" style="width:25px; height:25px;" src="Client/img/kikooz.png" /> !
+
+                                        <img src="Client/img/profil/baloon.svg" style="width:50%; max-width:200px; border-radius:5px;" />
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <!--FIN zONE vISU article-->
+                            <div style="">
+                                <!--liste-->
+                                <div style="float:left;margin-top:10px;width:50%; height:300px;  border: 2px solid #E6E5E0; border-radius:3px;overflow-y:auto;">
+
+                                    <!--Zone Jeu-->
+                                    <div style="margin-top:5px;" class="clickable">
+
+                                        <div class="clickable" data-bind="click: Boutique.ShowJeux">
+                                            <i class="fa fa-folder IconRose" aria-hidden="true"></i>
+                                            <span> Jeux </span> <img alt="loader" data-bind="visible : Boutique.JeuxLoader" src="Client/img/ajax-loader-small.gif" />
+                                        </div>
+
+                                        <div data-bind="visible : Boutique.isVisibleListeJeux, foreach: Boutique.ListeJeux">
+                                            <div class="clickable" data-bind="click:$parent.Boutique.clickJeux" style="margin-left:10px;">
+                                                <i class="fa fa-archive" aria-hidden="true" data-bind="style:{color: isPossede() ? 'green' : '#f1d191' }"></i>  <span data-bind="text: nom">  </span>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!--Zone feutre-->
+                                    <div style="margin-top:5px;">
+                                        <div class="clickable" data-bind="click: Boutique.ShowFeutre">
+                                            <i class="fa fa-folder IconRose" aria-hidden="true"></i>
+                                            <span> Feutres </span>  <img alt="loader" data-bind="visible : Boutique.FeutreLoader" src="Client/img/ajax-loader-small.gif" />
+                                        </div>
+
+                                        <div data-bind="visible : Boutique.isVisibleListeFeutre, foreach: Boutique.ListeFeutre">
+                                            <div class="clickable" data-bind="click:$parent.Boutique.clickFeutre" style="margin-left:10px;">
+                                                <i class="fa fa-archive" aria-hidden="true" style="" data-bind="style:{color: isPossede() ? 'green' : '#f1d191' }"></i>  <span data-bind="text: nom">  </span>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!--Zone Item-->
+                                    <div style="margin-top:5px;" class="clickable">
+                                        <div data-bind="click: Boutique.ShowItem">
+                                            <i class="fa fa-folder IconRose" aria-hidden="true"></i>
+                                            <span> Items </span> <img alt="loader" data-bind="visible : Boutique.ItemLoader" src="Client/img/ajax-loader-small.gif" />
+                                        </div>
+
+
+                                        <div data-bind="visible : Boutique.isVisibleListeItem, foreach: Boutique.ListeItem">
+                                            <div class="clickable" data-bind="visible:nom!='Anim',click:$parent.Boutique.clickItem" style="margin-left:10px;">
+                                                <i class="fa fa-archive" aria-hidden="true" style="" data-bind="style:{color: isPossede() ? 'green' : '#f1d191' }"></i>  <span data-bind="text: nom">  </span>
+                                                <span data-bind="text: nom2">  </span>
+
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                    <!--Zone Fond de profil-->
+                                    <div style="margin-top:5px;">
+                                        <div class="clickable" data-bind="click: Boutique.ShowFondProfil">
+                                            <i class="fa fa-folder IconRose" aria-hidden="true"></i>
+                                            <span> Fond de profil </span>  <img alt="loader" data-bind="visible : Boutique.FondProfilLoader" src="Client/img/ajax-loader-small.gif" />
+                                        </div>
+
+                                        <div data-bind="visible : Boutique.isVisibleListeFondProfil, foreach: Boutique.ListeFondProfil">
+                                            <div class="clickable" data-bind="click:$parent.Boutique.clickFondProfil" style="margin-left:10px;">
+                                                <i class="fa fa-archive" aria-hidden="true" style="" data-bind="style:{color: isPossede() ? 'green' : '#f1d191' }"></i>  <span data-bind="text: nom">  </span>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <!-- FIN liste-->
+
+                                <div style="float:right;width:50%; margin-top:10px;">
+                                    <div style="float:left;width:100px; height:25px; background-color:#fad9c4; border: 2px solid #DAC6B6; border-radius:3px; line-height: 20px;">
+                                        <img alt="kikooz" style="margin-left:5px;float:left; width:20px; height:20px;" src="Client/img/kikooz.png" />
+                                        <span class="TexteGras" style="color:#5F452D; font-size:18px;margin-left:5px;" data-bind="text:player.kikooz"> 0 </span>
+                                    </div>
+
+                                    <div class="clickable tip" style="float:right;margin-right:12px;" data-toggle="tooltip" data-placement="top" title="Historique des factures">
+                                        <i data-bind="click:Boutique.OpenHistoAchat" class="fa fa-file-text" style="color:#C09725; font-size:25px;" aria-hidden="true"></i>
+                                    </div>
+
+                                    <div class="clickable tip" style="float:right;margin-right:12px;" data-toggle="tooltip" data-placement="top" title="Accueil boutique" data-bind="visible: Boutique.VisualisationAchat.type()">
+                                        <i data-bind="click:Boutique.BackToAccueil" class="fa fa-minus-square" style="color:lightgrey; font-size:25px;" aria-hidden="true"></i>
+                                    </div>
+
+                                </div>
+
+
+                                <div data-bind="click : Boutique.OpenAchatKikooz" class="clickable ObtenirKikooz" style="float:right;margin-top:10px;width:50%  ; height:70px; text-align:center; border:2px solid #D09E7D; border-radius:3px;">
+                                    <div style="float:left;width:50%;padding-top:5px; color:#5F452D;">
+                                        <div> OBTENIR </div>
+                                        <div> DES </div>
+                                        <div> KIKOOZ </div>
+                                    </div>
+                                    <div style="float:left;width:50%; line-height:70px;">
+                                        <img alt="kikooz" style="width:50px; height:50px;" src="Client/img/kikooz.png" />
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+                        <!--Region achat de kikooz-->
+                        <div data-bind="visible : Boutique.IsOpenAchatKikooz()">
+
+                            <i data-bind="click : Boutique.CloseAchatKikooz" class="fa fa-times clickable" aria-hidden="true" style="color:red; font-size:18px;"></i>
+                            Achat de kikooz
+
+                            <div>
+                                Tu peux acheter des kikooz en toute sécurité avec paypal !
+                            </div>
+
+                            <div style="padding-top:80px;height:200px; background-color:#CAF597; border:2px solid #C8D9B8; border-radius:3px;">
+                                <div style="width:100%; height:50px; text-align: center; ">
+                                    <div style="width:25%; float:left;">
+                                        100 <img alt="kikooz" style="width:25px; height:25px;" src="Client/img/kikooz.png" />
+                                    </div>
+                                    <div style="width:25%; float:left;">
+                                        1.50 €
+                                    </div>
+                                    <div style="width:50%; float:left;">
+                                        <div id="paypal-button-container"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <span style="font-style: italic; font-size:11px;"> Une fois le paiement effectué le solde de kikooz de ton compte sera automatiquement incrémenté !  </span>
+                          </div>
+                         
+                            <div style="float:left;width:100px; height:25px; background-color:#fad9c4; border: 2px solid #DAC6B6; border-radius:3px; line-height: 20px;">
+                                <img alt="kikooz" style="margin-left:5px;float:left; width:20px; height:20px;" src="Client/img/kikooz.png" />
+                                <span class="TexteGras" style="color:#5F452D; font-size:18px;margin-left:5px;" data-bind="text:player.kikooz"> 0 </span>
+                            </div>
+                        
+                </div>
+                        <!--FIN Region achat de kikooz-->
+                        <!--Region Historique facture -->
+                        <div data-bind="visible : Boutique.isVisibleHistoAchat()">
+
+                            <i data-bind="click : Boutique.CloseHistoAchat" class="fa fa-times clickable" aria-hidden="true" style="color:red; font-size:18px;"></i> Historique facture
+
+                            <div data-bind="foreach:Boutique.ListeHistoAchat" style="height:300px; overflow:hidden; overflow-y:auto;">
+
+                                <div>
+                                    <span data-bind="text:date" style="font-weight:bold;"> </span>
+                                    <span data-bind="text:description"> </span>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <!--FIN Region Historique facture -->
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!--FIN Boutique -->
+
+        </div>
+        <!--FIN Boutique-->
+
+
+    </div>
+    <!--Fin dashboard-->
+
+
+</body>
+
+
+</html>
+
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#3c404d",
+      "text": "#d6d6d6"
+    },
+    "button": {
+      "background": "#8bed4f"
+    }
+  },
+  "content": {
+    "message": "FrutiZone utilise les cookies pour garder ta session active sur tous les services proposés par le site. sans les cookies le site ne fonctionne pas.",
+    "dismiss": "OK",
+    "link": "En apprendre plus"
+  }
+})});
+</script>

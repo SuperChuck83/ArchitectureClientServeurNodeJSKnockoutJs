@@ -1,0 +1,68 @@
+body {
+    height: 100%;
+    /*font-family:eras demi itc;*/
+    /* font-family: 'Fruti', serif;*/
+    font-family: 'Verdana Pro' demi itc;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+/* titre du site */
+.siteTitle4 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.SousligneTitle {
+    background: #00bcd4;
+    width: 50px;
+    height: 1px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Fin titre du site */
+
+
+
+@-webkit-keyframes wizz {
+    0% {
+        transform: translateX(-1vw) rotate(-5deg);
+    }
+
+    15% {
+        transform: translateX(1vw) rotate(0deg);
+    }
+
+    30% {
+        transform: translateX(-1vw) rotate(5deg);
+    }
+
+    45% {
+        transform: translateX(1vw) rotate(0deg);
+    }
+
+    60% {
+        transform: translateX(-1vw) rotate(-5deg);
+    }
+
+    75% {
+        transform: translateX(1vw) rotate(0deg);
+    }
+
+    90% {
+        transform: translateX(-1vw) rotate(5deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+.wizz {
+    -webkit-animation: wizz 3s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: 1; /* Chrome, Safari, Opera */
+}

@@ -1,0 +1,35 @@
+{
+  "short_name": "FrutiZone",
+  "name": "FrutiZone",
+  "icons": [
+    {
+      "src": "/Client/img/icon/fraise48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/Client/img/icon/fraise-2x.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/Client/img/icon/fraise-4x.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/Client/img/icon/fraise.png",
+      "type": "image/png",
+      "sizes": "140x140"
+    }
+  ],
+
+  "start_url": "https://frutizone.fr/m",
+  "scope": "https://frutizone.fr/m",
+  "background_color": "#D8F7B9",
+  "theme_color": "#D8F7B9",
+  "display": "standalone",
+  "orientation": "portrait",
+  "gcm_sender_id": "911144471431"
+
+}

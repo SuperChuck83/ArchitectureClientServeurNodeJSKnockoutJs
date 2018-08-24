@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html style="height:100%;" lang="fr">
+<head>
+    <title>Architecture Project</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="MA DESCRIPTION DU SITE qui apparait dans les moteurs de recherche" />
+    <meta name="keywords" content="MES KEYWORDS, avec, virgule, comme, séparateur" />
+
+    <meta name="robots" content="index,nofollow,noimageindex" />
+
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+    <link rel="apple-touch-icon" href="Client/img/icon/fraise-2x.png">
+    <meta name="apple-mobile-web-app-title" content="Architecture">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <link rel="shortcut icon" href="Client/img/fraise.png" type="image/x-icon" />
+
+
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+</head>
+
+
+<body style="background-color:#F4F4F4">
+
+    <div id="preimg" style="position:absolute; opacity:0; width:1px; height:1px;">
+
+    </div>
+
+    <div id="Loader" style="position: fixed; left: 0; top: 0; z-index: 999; width: 100%; height: 100%; overflow: visible; background: #333 url('Client/img/loading.gif') no-repeat center center;align-items: center;display: flex;justify-content: center;">
+
+        <div style="color:white; margin-top:100px; font-size:20px;">
+            Chargement du site ...
+        </div>
+
+        <!--Fond d'ecran de la page principal chargé avant pour plus de fluidité -->
+        <!--<img src="Client/img/fond1.jpg" style="opacity:0; width:1px; height:1px;" />-->
+
+    </div>
+
+    <div id="WebSite" style="display:none; height:100%; width:100%;">
+
+        <!--Annonce modal-->
+        <!-- Modal -->
+        <div id="Annoncemodal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color:#fff3cd;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"> Fruti'Annonce ! </h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!--FIN Annonce modal-->
+        <!--Deconnection modal-->
+        <!-- Modal -->
+        <div id="decomodal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color:red;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"> Perte de la connection au site ! </h4>
+                    </div>
+                    <div class="modal-body">
+
+                        Tu as été déconnecté du site. rafraichit la page pour te reconnecter...
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!--FIN Deconnection modal-->
+        <!--MOT DE PASSE OUBLIé-->
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Mot de passe oublié ? </h4>
+                    </div>
+                    <div class="modal-body">
+                        <!--<div> Nous envoyons un mail au pseudo associé pour regenerer ton mot de passe ( verifie dans les spams si tu ne recois pas )   </div>
+                        <span> Pseudo : </span><input class="frutiInputInscription" data-bind="value: PseudoMotDePasseOubli" />
+
+                        <button class="bouton5" data-bind="click: EnvoyerMailChangementMotDePasse"> Envoyer </button>
+
+
+
+                        <div class="rougeMessage">
+                            <span data-bind="text:messageServeurPWDOublie"> </span>
+                        </div>-->
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!--FIN MOT DE PASSE OUBLIé-->
+        <!--Charte du site -->
+        <!-- Modal -->
+        <div id="CharteModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Charte du site </h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <h3> Charte du site  </h3>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--FIN MOT DE PASSE OUBLIé-->
+
+
+        <div class="Body" style="">
+
+            <span style="color:red;" data-bind="text:Test"> </span>
+
+
+            <!--ko if: ModuleAccueilActif-->
+            <div data-bind='component: { name: "Accueil-Component",params: { ViewModel: $root}}'></div>
+            <!-- /ko -->
+         
+
+
+
+            <div>
+                <div>
+                    <h4 class="siteTitle4">Inscription / Connexion</h4>
+                    <div class="SousligneTitle"> </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <!--ko if: ModuleInscriptionActif-->
+                    <div data-bind='component: { name: "Inscription-Component",params: { ViewModel: $root}}'></div>
+                    <!-- /ko -->
+                    <!--ko if: ModuleConnexionActif-->
+                    <div data-bind='component: { name: "Connexion-Component",params: { ViewModel: $root}}'></div>
+                    <!-- /ko -->
+                </div>
+            </div>
+
+           
+
+
+            <div>
+                <div>
+                    <h4 class="siteTitle4">Appel ajax limité </h4>
+                    <div class="SousligneTitle"> </div>
+                </div>
+
+                <div  style="text-align:center; padding-top:10px;">
+                    <div>
+                        <button data-bind="click: testClick"> Appel ajax </button>
+                    </div>
+                    <span> en appuyant sur ce bouton plus de 5 fois en 3 secondes (paramètre côté serveur) le serveur renvoit une erreur ("too many request" ) </span>
+
+                </div>
+                
+
+            </div>
+
+
+            <div>
+                <div>
+                    <h4 class="siteTitle4">Mini tchat</h4>
+                    <div class="SousligneTitle"> </div>
+                </div>
+                 
+                <!--ko if: ModuleMiniTchatActif-->
+                <div data-bind='component: { name: "MiniTchat-Component",params: { ViewModel: $root}}'></div>
+                <!-- /ko -->
+
+            </div>
+           
+
+            <div>
+                <div>
+                    <h4 class="siteTitle4">Multi langue (client) </h4>
+                    <div class="SousligneTitle"> </div>
+                </div>
+
+                <div style="margin-top:10px; text-align:center;">
+
+                    <span style="color:aqua; font-weight:bold;" data-bind="text : RessourceString().Bonjour"> </span>
+
+                    <div>
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        <img data-bind="visible: ressourceActive() == 'fr' , click: ChangeLangue" class="clickable" style="width:30px; height:25px;" src="Client/img/Drapeau_France.png" />
+                        <img data-bind="visible: ressourceActive() == 'en', click: ChangeLangue" class="clickable" style="width:30px; height:25px;" src="Client/img/Drapeau_Angleterre.png" />
+
+                    </div>
+                </div>
+                 
+            </div>
+            
+
+
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- SocketIo : gestion du temps reel -->
+<script src="/client/js/CookieHelper.js"></script>
+
+<!-- Librairie JQUERY  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/client/js/outil/jquery.ui.touch-punch.min.js"></script>
+
+<!-- Bootstrap -->
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.fr.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" />
+
+<!-- SocketIo : gestion du temps reel -->
+<script src="/client/js/outil/socket.io.js"></script>
+
+<!-- Librairie KNOCKOUT : framework javascript pour du MVVM -->
+<script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js"></script>
+<!--//ko mapping-->
+<script src="/client/js/outil/ko.mapping.js" charset="windows-1252"></script>
+
+<!-- CONFIG js : configuration de l'URL de l'application pour la version local/prod -->
+<script src="/client/js/config/config.js" charset="windows-1252"></script>
+
+<!-- Module loader js - permet de charger des modules d'IHM ( page d'inscription par exemple )  -->
+<script src="/client/js/LoadModule.js" charset="windows-1252"></script>
+
+<!-- index js principal -->
+<script src="/client/js/index.js" charset="windows-1252"></script>
+
+<!-- navigator test js  -->
+<script src="/client/js/outil/NavigatorTest.js" charset="windows-1252"></script>
+<!-- underscore js : indispensable pour faire des opérations sur les tableau/liste  -->
+<script src="/client/js/outil/underscore-min.js" charset="windows-1252"></script>
+<!-- notify js : permet d'afficher une petite notification à l'écran (vert, jaune, rouge) -->
+<script src="/client/js/notify/notify.min.js" charset="windows-1252"></script>
+<!-- moment js : permet de gérer les dates -->
+<script src="/client/js/outil/moment-with-locales.min.js" charset="windows-1252"></script>
+<!-- date format js  -->
+<script src="/client/js/outil/date.format.js" charset="windows-1252"></script>
+
+<!-- paypal js : permet d'inclure des paiements avec paypal   -->
+<script src="https://www.paypalobjects.com/api/checkout.min.js"></script>
+
+<!-- Ressource des langages : fichier de ressources des différents langages  -->
+<script src="/client/js/LangRessource/Ressource.js" charset="windows-1252"></script>
+
+<!--Declaration des modeles des modules ici-->
+
+<!--Module Accueil view Model-->
+<script src="/client/js/ModuleJs/Accueil.js" charset="windows-1252"></script>
+
+<!--Module inscription view Model-->
+<script src="/client/js/ModuleJs/Inscription.js" charset="windows-1252"></script>
+
+<!--Module Connexion view Model-->
+<script src="/client/js/ModuleJs/Connexion.js" charset="windows-1252"></script>
+
+<!--Module miniTchat view Model-->
+<script src="/client/js/ModuleJs/miniTchat.js" charset="windows-1252"></script>
+<!--FIN Declaration des modeles des modules ici--> 
+
+
+
+
+<!--fa: font awesome - des icônes sympas facile à utiliser  -->
+<link rel="stylesheet" href="Client/font-awesome-4.7.0/css/font-awesome.min.css">
+
+<!-- CSS principal -->
+<link rel="stylesheet" type="text/css" href="/client/index.css">
+
+<link rel="stylesheet" type="text/css" href="/client/css/pretty-checkbox.min.css">
+
+<!--Magic Css - des effets CSS facile à utiliser https://www.minimamente.com/example/magic_animations/ -->
+<link rel="stylesheet" href="/client/magicCss/magic.css">
+
+
+
+<!-- require js  -->
+<script src="/client/js/outil/require.js" charset="windows-1252"></script>
+
+<!--Coockie consentement - affiche une pop up pour dire que le site utilise les cookies  -->
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+    window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": {
+                    "background": "#3c404d",
+                    "text": "#d6d6d6"
+                },
+                "button": {
+                    "background": "#8bed4f"
+                }
+            },
+            "content": {
+                "message": "Ce site utilise les cookies pour garder ta session active sur tous les services proposés par le site.",
+                "dismiss": "OK",
+                "link": "En apprendre plus"
+            }
+        })
+    });
+</script>

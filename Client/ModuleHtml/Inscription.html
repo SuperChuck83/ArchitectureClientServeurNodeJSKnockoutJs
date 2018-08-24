@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html style="height:100%;" lang="fr">
+<head>
+
+    
+</head>
+
+<body>
+    <div id="Inscription" class="col-lg-6 col-md-6 col-xs-12 col-sm-12" style="height:100%; padding-top:20px; padding-bottom:20px;">
+
+        <div style="text-align:center;">
+            Inscription  
+        </div>
+        
+
+        <!--data bind provenant du parent--> 
+        <span style="color:orange" data-bind="text: $root.Test"> </span>
+        
+        <!--data-bind provenant de lui même--> 
+         <span style="color:green" data-bind="text: text"> </span>
+
+        <!--Formulaire d'inscription Simple--> 
+        <div>
+            <div>
+                Pseudo
+                <div> 
+                    <input data-bind="value:ObjetInscription.pseudo" /> 
+                </div>
+            </div>
+            <div>
+                Mot de passe  
+                <div> 
+                    <input data-bind="value:ObjetInscription.mdp1" type="password" />
+                </div>
+            </div>
+            <div>
+                Confirmer mot de passe 
+                <div> 
+                    <input data-bind="value:ObjetInscription.mdp2" type="password" />
+                </div> 
+            </div>
+            <button data-bind="click:InscriptionClick"> S'inscrire</button>
+
+        </div>
+        <!--FIN Formulaire d'inscription Simple-->
+
+       
+
+    </div>
+</body>
+</html>
+

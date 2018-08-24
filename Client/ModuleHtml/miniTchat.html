@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html style="height:100%;" lang="fr">
+<head>
+
+    <!--Css du mini tchat-->
+    <link rel="stylesheet" type="text/css" href="/client/css/module/miniTchat.css">
+
+</head>
+
+<body>
+    <div id="MiniTchat" style="height:100%; width:100%; margin-top:20px;">
+
+        <div style="margin-left: auto; margin-right: auto;width:300px;">
+            <div style="width:300px; height:200px; background-color:lightgrey; overflow-y:auto; overflow-x:hidden;">
+                <div data-bind="foreach : ListeMessageTchat">
+
+                    <div>
+                        <span class="Tchatpseudo" data-bind="text:pseudo"> </span>
+                        -
+                        <span data-bind="text: message"> </span>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <input style="width:250px;" data-bind="value:MessageTchat" />  <i class="fa fa-paper-plane clickable" aria-hidden="true" data-bind="click:EnvoiMessageDansTchat"></i>
+            </div>
+        </div>
+      
+    </div>
+</body>
+</html>
+

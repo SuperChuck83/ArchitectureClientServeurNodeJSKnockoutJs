@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html style="height:100% ;" lang="fr">
+<head>
+    <title>Changer mot de passe</title>
+    <meta http-equiv="content-type" content="text/html;" charset="iso-8859-1" />
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+    <!-- Librairie JQUERY  -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+
+    <!-- CONFIG js -->
+    <script src="/client/js/config/config.js" charset="windows-1252"></script>
+
+    <!-- Librairie KNOCKOUT -->
+    <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js" language="JavaScript" type="text/javascript"></script>
+
+    <!-- OCR js principal -->
+    <script src="/client/js/PwdManager.js" type="text/javascript" charset="iso-8859-1"></script>
+
+    <!-- underscore js  -->
+    <script src="/client/js/outil/underscore.js" type="text/javascript" charset="iso-8859-1"></script>
+
+    <script src="/client/js/outil/moment.min.js" type="text/javascript" charset="iso-8859-1"></script>
+
+    <script src="/client/js/outil/date.format.js" type="text/javascript" charset="iso-8859-1"></script>
+
+    <script src="/client/js/notify/notify.min.js" charset="windows-1252"></script>
+
+    <!--fa: font awesome -->
+    <link rel="stylesheet" href="Client/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    
+
+</head>
+
+<body style="height:100%; background-color:#AAE56C;" class="notSelectable">
+
+
+
+    <div style="text-align:center; margin-top:10px;" >
+        <div>
+            <img src="Client/img/lowpolyfraise.png" style="width:50px; height:65px;"/> 
+        </div>
+        <span class="fofont"> Changement du mot de passe  </span>
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+        <div>
+            <div>
+                <span class="fofont" style="font-size:20px;"> Nouveau mot de passe  </span>
+            </div>
+             <input   type="password" class="frutiInputConnection" data-bind="value : firstPWD" />
+        </div>
+        <div style="margin-top:10px;">
+            <div>
+                <span class="fofont" style="font-size:20px;"> Retaper Nouveau mot de passe    </span>
+            </div>
+            <input type="password" class="frutiInputConnection" data-bind="value : secondPWD" />
+        </div>
+        <div style="margin-top:10px;">
+            <button class="frutiBoutton TexteGras" style="color:#C7616B" data-bind="click: Confirmer"> Confirmer </button>
+        </div>
+    </div>
+
+   
+
+
+
+
+</body>
+
+
+
+
+
+
+</html>

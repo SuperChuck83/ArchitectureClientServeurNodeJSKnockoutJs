@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html style="height:100%;" lang="fr">
+<head>
+
+    <!--Declaration du css associé ici !--> 
+    <!--Css de l'accueil-->
+    <link rel="stylesheet" type="text/css" href="/client/css/module/Accueil.css">
+    
+</head>
+
+<body>
+    <div id="Accueil" style="height:100%; width:100%;" data-bind="visible: AccueilVisible">
+
+        
+        <div class="containerTchat row" style="display:block; min-height:200px; margin-top:15px;user-select:none;">
+            <div style="margin-bottom:10px;">
+                <h4 style="text-align:center; font-weight:bold; font-size:24px;">Accueil</h4>
+
+                <div style="background: #00bcd4; width:50px; height:1px; text-align:center; margin-left:auto;margin-right:auto;">
+
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-4">
+                <!-- Blurb circle-->
+                <article class="blurb blurb-minimal">
+                    <div class="unit flex-row unit-spacing-md" style="display:flex;">
+                        <div class="unit-left" style="padding-right:15px;">
+                            <div class="blurb-minimal__icon"><img src="Client/img/fraise.png" style="width:35px; height:35px;"> </div>
+                        </div>
+                        <div class="unit-body">
+                            <p class="blurb__title heading-6"><a style="text-decoration: none;"> Serveur Node js </a></p>
+                            <p> Ce site est une architecture de projet node js, proposant une API Get/Post ainsi que la possibilité de connection avec des websocket. </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4 col-xl-4">
+                <!-- Blurb circle-->
+                <article class="blurb blurb-minimal">
+                    <div class="unit flex-row unit-spacing-md" style="display:flex;">
+                        <div class="unit-left" style="padding-right:15px;">
+                            <div class="blurb-minimal__icon"><img src="Client/img/fraise.png" style="width:35px; height:35px;"> </div>
+                        </div>
+                        <div class="unit-body">
+                            <p class="blurb__title heading-6"><a style="text-decoration: none;">L'IHM et les modules</a></p>
+                            <p> Côté IHM c'est le framework knock out qui est utilisé, il permet de définir des modules d'ihm bien séparé du reste du code  ( ici les modules d'inscription, connexion, de tchat, ou encore l'accueil du site )   </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4 col-xl-4 clickable" data-bind="click:forum.open">
+                <!-- Blurb circle-->
+                <article class="blurb blurb-minimal">
+                    <div class="unit flex-row unit-spacing-md" style="display:flex;">
+                        <div class="unit-left" style="padding-right:15px;">
+                            <div class="blurb-minimal__icon"><img src="Client/img/fraise.png" style="width:35px; height:35px;"> </div>
+                        </div>
+                        <div class="unit-body">
+                            <p class="blurb__title heading-6"><a style="text-decoration: none;"> Inscription / Connexion  </a></p>
+                            <p>Le module d'inscription permet d'apeller une URL,POST qui reçoit le pseudo et le mot de passe et enregistre l'utilisateur en base ! <br /> La connexion quant à elle permet de s'authentifier au prêt du socket, si on renseigne le bon pseudo et mdp la partie socket serveur conservera les données.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-4 col-xl-4 clickable" data-bind="click:forum.open">
+                <!-- Blurb circle-->
+                <article class="blurb blurb-minimal">
+                    <div class="unit flex-row unit-spacing-md" style="display:flex;">
+                        <div class="unit-left" style="padding-right:15px;">
+                            <div class="blurb-minimal__icon"><img src="Client/img/fraise.png" style="width:35px; height:35px;"> </div>
+                        </div>
+                        <div class="unit-body">
+                            <p class="blurb__title heading-6"><a style="text-decoration: none;"> Tchat </a></p>
+                            <p>Le module de tchat permet de voir une simple communication entre socket, on envois un message et tout le monde le reçoit, si on se connecte avec un pseudo le tchat affichera le pseudo sinon il affichera "Anonymous" </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+
+        </div>
+      
+
+    </div>
+</body>
+</html>
+
