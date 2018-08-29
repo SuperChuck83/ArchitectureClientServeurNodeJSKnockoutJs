@@ -1,7 +1,12 @@
+<<<<<<< Updated upstream
 # Live Demo 
 http://54.38.34.85:3100
 
 # Architecture Client-Serveur NodeJS et KnockoutJs
+=======
+# Architecture Client-Serveur NodeJS et KnockoutJs
+
+>>>>>>> Stashed changes
 
 1) prérequis à télécharger et installer : 
 - node js : https://nodejs.org/en/download/ 

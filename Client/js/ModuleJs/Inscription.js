@@ -28,7 +28,9 @@
             data: { pseudo: _that.ObjetInscription.pseudo(), mdp1: _that.ObjetInscription.mdp1(), mdp2: _that.ObjetInscription.mdp2() }, //les paramètres qu'on utilisera côté serveur 
             success: function (result) {
                 if (result.success) {
-                    $.notify(result.message, "success");
+          
+
+                    $.notify({ title: result.message, message:"" }, { type: 'success' });
 
                     //on vide l'objet inscription 
                     _that.ObjetInscription.pseudo("");
@@ -37,12 +39,12 @@
                 }
                 else {
                     for (var i in result.message) {
-                        $.notify(result.message[i], "error");
+                        $.notify({ title: result.message[i], message: "" }, { type: 'danger' });
                     }
                 }
             },
             error: function (e) {
-                $.notify(e.responseText, "error");
+                $.notify({ title: e.responseText, message: "" }, { type: 'danger' });
             }
         });
     }

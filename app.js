@@ -38,6 +38,15 @@ var serv = require('http').Server(app);
 var helmet = require('helmet');
 app.use(helmet());
 
+
+//Pour le projet angular qui est sur le port 4200 il faut activer le cors 
+const cors = require('cors')
+var corsOptions = {
+    origin: ['http://localhost:4200', 'http://54.38.34.85:3100'],
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
+}
+app.use(cors(corsOptions))
+
 //genere une minification au lancement du serveur. utile pour diminuer le poid et la compréhension de ses fichiers, mais à n'utiliser qu'en production car cela prend un peu de temps ...
 if (true) {
     // Using Google Closure Compiler
@@ -165,7 +174,8 @@ app.post("/Upload", function (req, res) {
     //exemple d'appel post, le client envois le paramètre "pseudo" et le serveur retourne l'élement envoyé ! 
     app.post('/api/ExampleAjaxCall', function (req, res) {
         try {
-            res.send(req.body.pseudo);
+            console.log("ExampleAjaxCall " + req.body.pseudo)
+            res.send( {pseudo : req.body.pseudo + " " + " back", age: 10 });
         }
         catch (e) {
             console.log(e);
@@ -562,9 +572,10 @@ io.sockets.on('connection', function (socket) {
     socket.on("TchatRecoisMessage", function (data) {
         try {
 
+            console.log(data.message);
             /** Test métier  **/
             var envoiAutorise = true;
-            if (data.message.length < 1) {
+            if (!data.message  || data.message.length < 1) {
                 envoiAutorise = false;
                 socket.emit("ErreurServeur", "Message trop court.");
             }

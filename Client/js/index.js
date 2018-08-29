@@ -1,7 +1,7 @@
 ﻿//$(document).ready(function () {
 $(window).trigger("load");
 $(window).on("load", function () {
-
+  
     //on inclus le text de require.js
     requirejs.config({
         paths: {
@@ -47,7 +47,7 @@ $(window).on("load", function () {
 
         if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))  // If Internet Explorer, return version number
         {
-            $.notify("Il est fortement recommandé de ne pas utiliser internet explorer !", "error");
+            $.notify({ title: "Il est fortement recommandé de ne pas utiliser internet explorer !", message: "" }, { type: 'danger' });
         }
         else  // If another browser, return 0
         {
@@ -142,10 +142,13 @@ $(window).on("load", function () {
                 type: 'POST',
                 data: { 'pseudo': "testPseudo" },
                 success: function (result) {
-                    $.notify(result, "success");
+                    $.notify({ title: result.pseudo, message: "" }, { type: 'success' });
+
+                 
                 },
                 error: function (e) {
-                    $.notify(e.responseText, "error");
+                    $.notify({ title: e.responseText, message: "" }, { type: 'danger' });
+               
                 }
             });
         }
@@ -156,10 +159,12 @@ $(window).on("load", function () {
         {
             //message de succès ou d'erreur du serveur 
             socket.on("ErreurServeur", function (msgErreur) {
-                $.notify(msgErreur, "error");
+         
+                $.notify({ title: msgErreur, message: "" }, { type: 'danger' });
             })
             socket.on("SuccessServeur", function (msgSucces) {
-                $.notify(msgSucces, "success");
+                $.notify({ title: msgSucces, message: "" }, { type: 'success' });
+
             })
 
             //Example socket.on 

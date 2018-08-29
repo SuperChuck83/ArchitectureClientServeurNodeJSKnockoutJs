@@ -1,9 +1,9 @@
-const EnvironementProd = false;
+const EnvironementProd = true;
 
 var GetAppUrl = function () {
 
     if (EnvironementProd) {
-        return "https://frutizone.fr/"
+        return "http://54.38.34.85:3100/";
     }
     else {
         return "http://localhost:3100/";

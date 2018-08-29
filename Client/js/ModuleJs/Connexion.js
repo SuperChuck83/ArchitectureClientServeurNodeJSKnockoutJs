@@ -32,14 +32,15 @@
                 RootModel.user.pseudo(data.pseudo);
                 RootModel.user.token(data.token);
 
-                $.notify(data.message, "success");
+                $.notify({ title: data.message, message: "" }, { type: 'success' });
+              
 
                 //on cache le module d'accueil une fois qu'on est connecté
                 RootModel.AccueilModule.AccueilVisible(false);
 
             }
             else {
-                $.notify(data.message, "error");
+                $.notify({ title: data.message, message: "" }, { type: 'danger' });
             }
         });
 
