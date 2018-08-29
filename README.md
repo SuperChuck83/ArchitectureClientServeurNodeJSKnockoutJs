@@ -1,6 +1,7 @@
-# Architecture Client-Serveur NodeJS et KnockoutJs
-##@Live Demo : http://54.38.34.85:3100
+#Live Demo 
+http://54.38.34.85:3100
 
+# Architecture Client-Serveur NodeJS et KnockoutJs
 
 1) prérequis à télécharger et installer : 
 - node js : https://nodejs.org/en/download/ 
