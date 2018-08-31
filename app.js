@@ -15,34 +15,45 @@ var mongojs = require('mongojs');
 //ici on ajoute toutes les collections que l'on utilise dans le projet (Archi est le nom de la base de donnée)
 var db = mongojs('localhost:27017/Archi', ['user', 'departement', 'Token_pwd', 'admin_Role', 'smiley']);
 
+//underscore permet de travailler avec les listes/tableaux
 var _ = require('underscore')._;
+//gestion des password hasché 
 var passwordHash = require('password-hash');
+//infrastructure pour l'api REST
 var express = require('express');
-var formidable = require('formidable');
+
 var multer = require('multer');
 var path = require('path');
 var request = require('request');
+//permet de faire travailler node js en asynchrone quando n l'utilise, par exemple faire X requête en base en parallèle et attendre le résultat finale avant dexecuter la suite du code ! 
 var async = require("async.min");
+//permet d'éviter les injectiosn SQL, à appliquer sur chaque variable venant du client.
 var sanitize = require('mongo-sanitize');
+//permet de gérer l'envoie de mail 
 var nodemailer = require("nodemailer");
+//permet de gérer des dates 
 var moment = require("moment.min");
+//permet de minifier loes fichiers ..
 var compressor = require('node-minify');
+//permet d'avoir des ID uniques 
 var Guid = require('guid');
 
 var app = express();
 app.enable('trust proxy');
 app.set('trust proxy', function () { return true; });
 
+//le server pour les sockets 
 var serv = require('http').Server(app);
 
+//permet d'un peu sécuriser son application juste en écrivant ces lignes.. ( https://www.npmjs.com/package/helmet ) 
 var helmet = require('helmet');
 app.use(helmet());
 
 
-//Pour le projet angular qui est sur le port 4200 il faut activer le cors 
+//Pour le projet angular qui est sur le port 4200 il faut activer le cors pour pouvoir faire des requêtes 
 const cors = require('cors')
 var corsOptions = {
-    origin: ['http://localhost:4200', 'http://54.38.34.85:3100'],
+    origin: ['http://localhost:4200', 'http://54.38.34.85:3100', 'http://54.38.34.85:4200'],
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
 app.use(cors(corsOptions))
@@ -66,12 +77,10 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 
-
 /******Lien vers des pages html ******/
 
 //lien vers le service worker... pour la version mobile
 app.get('/sw', function (req, res) {
-
     res.sendFile(__dirname + '/sw.js');
 });
 
@@ -92,57 +101,6 @@ app.get('/Images', function (req, res) {
     res.sendFile(__dirname + '/Images/' + req.query.nom);
 });
 /******Lien vers des pages html ******/
-
-
-
-/****(non utilisé dans le projet) Upload en node js, je ne suis pas fan de cette méthode de faire, il doit exister mieux ailleurs ****/
-var Storage = multer.diskStorage({
-    destination: function (req, file, callback) {
-        callback(null, "./Images");
-    },
-    filename: function (req, file, callback) {
-        callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
-    },
-
-});
-
-var upload = multer({
-    storage: Storage,
-    limits: { fileSize: 20000000 },
-    fileFilter: function (req, file, cb) {
-        //console.log(path.extname(file.originalname) == ".jpg");
-        if (path.extname(file.originalname) !== '.png' && path.extname(file.originalname) !== '.jpg' && path.extname(file.originalname) !== '.jpeg' && path.extname(file.originalname) !== '.gif') {
-            return cb(new Error('Only png,jpg,jpeg and gif are allowed'))
-        }
-
-        cb(null, true)
-    }
-}).single('fichier');
-
-app.post("/Upload", function (req, res) {
-
-    upload(req, res, function (err) {
-        //console.log("Upload " + req.file);
-
-        var data = {};
-        data.nomImageServeur = "";
-        data.success = false;
-        data.messageErreur = "";
-        if (err) {
-            //console.log(err);
-            data.messageErreur = "Le fichier ne doit pas depasser 19MO et seul les images ( gif, jpeg, png, jpg ) sont acceptees.";
-            res.send(data);
-        } else {
-            data.success = true;
-            data.nomImageServeur = req.file.filename;
-            res.send(data);
-        }
-
-    });
-});
-
-/**** (non utilisé dans le projet) FIN Upload en node js, je ne suis pas fan de cette méthode de faire, il doit exister mieux ailleurs ****/
-
 
 
 //****** API GET/POST *******/
@@ -246,6 +204,148 @@ app.post("/Upload", function (req, res) {
     });
 
 
+
+    //#region gestion du pass word
+
+    //envoie le mail de changement de mot de passe avec l'url 
+    app.post('/ChangePwdManager', function (req, Pwdres) {
+
+        try {
+            //console.log(req.body);
+            var pseudo = sanitize(req.body.pseudo);
+
+            db.Token_pwd.find({ pseudo: pseudo }, function (err, Tres) {
+                var flag = true;
+                if (Tres.length > 0) {
+                    for (var i in Tres) {
+
+                        if (moment().diff(Tres[i].date, 'days') < 1) {
+                            flag = false;
+                        }
+                    }
+                }
+                if (flag) {
+                    db.user.find({ username: pseudo }, function (err, res) {
+
+                        if (res.length > 0) {
+                            var email = res[0].email;
+
+                            //generation du GUID
+                            var guid = Guid.create();
+
+                            db.Token_pwd.insert({ token: guid.value, date: new Date(), pseudo: pseudo, idPseudo: res[0]._id, expired: false }, function (err) {
+
+                                //envoie du mail 
+                                var mail = {
+                                    from: "frutizoneofficiel@gmail.com",
+                                    to: email,
+                                    subject: "Frutizone - Récupération du mot de passe",
+                                    html: "Tu as fait une demande de changement de mot de passe pour le pseudo " + pseudo + " tu peux changer ton mot de passe en te rendant sur le lien suivant : " + "<a href='https://frutizone.fr/PwdManager?id=" + guid + "' >https://frutizone.fr/PwdManager?id=" + guid + "</a>"
+                                }
+                                transport.sendMail(mail, function (error, response) {
+                                    if (error) {
+                                        //console.log(error);
+                                    } else {
+                                        //console.log("Message sent: " + response.message);
+                                    }
+
+                                    transport.close();
+                                });
+                                //fin envoie du mail
+
+                                Pwdres.send('OK');
+
+                            });
+
+
+
+                        }
+
+                    });
+
+                }
+                else {
+                    Pwdres.send('Une seule demande par jour, vérifie les spam de ta boite mail !');
+                }
+
+            });
+        } catch (e) {
+            console.log(e);
+        }
+
+    });
+    //renvoie la vue de changement de mot de passe si le token n'est pas expiré 
+    app.get('/PwdManager', function (req, res) {
+
+        try {
+            var guid = sanitize(req.query.id);
+            db.Token_pwd.find({ token: guid }, function (err, eres) {
+                if (eres.length > 0) {
+
+                    res.sendFile(__dirname + '/Client/PwdManager.html');
+                }
+                else {
+                    res.sendFile(__dirname + '/Client/index.html'); //TODO :  erreur page
+                }
+
+            });
+        }
+        catch (e) {
+            console.log(e);
+        }
+    });
+    //appuie de l'utilisateur sur le bouton confirmer le changement de mot de passe : si le token n'est pas expiré on modifie le mot de passe 
+    app.post('/SetNewPassword', function (req, res) {
+
+        try {
+            var token = sanitize(req.body.token);
+            var newmdp = sanitize(req.body.newmdp);
+
+            if (newmdp.length > 3) {
+
+                db.Token_pwd.find({ token: token }, function (err, Tokenres) { // trouve le token correspondant 
+
+                    if (Tokenres.length > 0) {
+
+                        if (moment().diff(Tokenres[0].date, 'days') < 1 && Tokenres[0].expired == false) {
+
+                            db.user.find({ _id: Tokenres[0].idPseudo }, function (err, userres) { //cherche l'user correspondant au token par son "id user "
+
+                                if (userres.length > 0) {
+
+                                    //update le mot de passe user 
+                                    db.user.update({ _id: userres[0]._id }, { $set: { password: passwordHash.generate(newmdp) } }, function (err, dbres) {
+
+                                        db.Token_pwd.update({ token: token }, { $set: { expired: true } }, function (err, dbres) {
+
+                                            res.send('OK');
+                                        });
+
+                                    });
+                                }
+
+                            });
+                        }
+                        else {
+
+                            res.send('NOTOK');
+                        }
+
+
+                    }
+
+                });
+            }
+
+        } catch (e) {
+            console.log(e);
+        }
+
+
+    });
+
+    //#endregion gestion du pass word
+
 }
 
 //****** FIN API GET/POST *******/
@@ -263,146 +363,6 @@ var transport = nodemailer.createTransport(smtpTransport({
 }))
 //fin initialisation composant mail 
 
-//#region gestion du pass word
-
-//envoie le mail de changement de mot de passe avec l'url 
-app.post('/ChangePwdManager', function (req, Pwdres) {
-
-    try {
-        //console.log(req.body);
-        var pseudo = sanitize(req.body.pseudo);
-
-        db.Token_pwd.find({ pseudo: pseudo }, function (err, Tres) {
-            var flag = true;
-            if (Tres.length > 0) {
-                for (var i in Tres) {
-
-                    if (moment().diff(Tres[i].date, 'days') < 1) {
-                        flag = false;
-                    }
-                }
-            }
-            if (flag) {
-                db.user.find({ username: pseudo }, function (err, res) {
-
-                    if (res.length > 0) {
-                        var email = res[0].email;
-
-                        //generation du GUID
-                        var guid = Guid.create();
-
-                        db.Token_pwd.insert({ token: guid.value, date: new Date(), pseudo: pseudo, idPseudo: res[0]._id, expired: false }, function (err) {
-
-                            //envoie du mail 
-                            var mail = {
-                                from: "frutizoneofficiel@gmail.com",
-                                to: email,
-                                subject: "Frutizone - Récupération du mot de passe",
-                                html: "Tu as fait une demande de changement de mot de passe pour le pseudo " + pseudo + " tu peux changer ton mot de passe en te rendant sur le lien suivant : " + "<a href='https://frutizone.fr/PwdManager?id=" + guid + "' >https://frutizone.fr/PwdManager?id=" + guid + "</a>"
-                            }
-                            transport.sendMail(mail, function (error, response) {
-                                if (error) {
-                                    //console.log(error);
-                                } else {
-                                    //console.log("Message sent: " + response.message);
-                                }
-
-                                transport.close();
-                            });
-                            //fin envoie du mail
-
-                            Pwdres.send('OK');
-
-                        });
-
-
-
-                    }
-
-                });
-
-            }
-            else {
-                Pwdres.send('Une seule demande par jour, vérifie les spam de ta boite mail !');
-            }
-
-        });
-    } catch (e) {
-        console.log(e);
-    }
-
-});
-//renvoie la vue de changement de mot de passe si le token n'est pas expiré 
-app.get('/PwdManager', function (req, res) {
-
-    try {
-        var guid = sanitize(req.query.id);
-        db.Token_pwd.find({ token: guid }, function (err, eres) {
-            if (eres.length > 0) {
-
-                res.sendFile(__dirname + '/Client/PwdManager.html');
-            }
-            else {
-                res.sendFile(__dirname + '/Client/index.html'); //TODO :  erreur page
-            }
-
-        });
-    }
-    catch (e) {
-        console.log(e);
-    }
-});
-//appuie de l'utilisateur sur le bouton confirmer le changement de mot de passe : si le token n'est pas expiré on modifie le mot de passe 
-app.post('/SetNewPassword', function (req, res) {
-
-    try {
-        var token = sanitize(req.body.token);
-        var newmdp = sanitize(req.body.newmdp);
-
-        if (newmdp.length > 3) {
-
-            db.Token_pwd.find({ token: token }, function (err, Tokenres) { // trouve le token correspondant 
-
-                if (Tokenres.length > 0) {
-
-                    if (moment().diff(Tokenres[0].date, 'days') < 1 && Tokenres[0].expired == false) {
-
-                        db.user.find({ _id: Tokenres[0].idPseudo }, function (err, userres) { //cherche l'user correspondant au token par son "id user "
-
-                            if (userres.length > 0) {
-
-                                //update le mot de passe user 
-                                db.user.update({ _id: userres[0]._id }, { $set: { password: passwordHash.generate(newmdp) } }, function (err, dbres) {
-
-                                    db.Token_pwd.update({ token: token }, { $set: { expired: true } }, function (err, dbres) {
-
-                                        res.send('OK');
-                                    });
-
-                                });
-                            }
-
-                        });
-                    }
-                    else {
-
-                        res.send('NOTOK');
-                    }
-
-
-                }
-
-            });
-        }
-
-    } catch (e) {
-        console.log(e);
-    }
-
-
-});
-
-//#endregion gestion du pass word
 
 
 //******* TEMPS REEL ******//

@@ -1,4 +1,4 @@
-const EnvironementProd = true;
+const EnvironementProd = false;
 
 var GetAppUrl = function () {
 
